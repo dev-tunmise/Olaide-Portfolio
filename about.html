@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Olaide Ilesanmi</title>
+    <meta name="description" content="Learn about Olaide Ilesanmi, a passionate UI/UX designer crafting exceptional digital experiences">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark': '#0F172A',
+                        'neon-teal': '#14B8A6',
+                        'neon-purple': '#8B5CF6',
+                        'glass': 'rgba(255, 255, 255, 0.1)',
+                        'glass-hover': 'rgba(255, 255, 255, 0.2)',
+                    },
+                    fontFamily: {
+                        'futura': ['Futura', 'Arial', 'sans-serif'],
+                        'space': ['Space Grotesk', 'system-ui', 'sans-serif'],
+                    },
+                    backdropBlur: {
+                        'xs': '2px',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'tilt': 'tilt 10s linear infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+<body class="bg-dark text-white font-space overflow-x-hidden">
+    
+    <!-- Background Elements -->
+    <div id="bg-canvas" class="fixed inset-0 -z-10"></div>
+    <div class="fixed inset-0 -z-10 bg-gradient-to-br from-neon-purple/20 via-dark to-neon-teal/20"></div>
+    
+    <!-- Floating Shapes -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div class="floating-shape absolute w-32 h-32 bg-gradient-to-r from-neon-teal/30 to-neon-purple/30 rounded-full blur-xl animate-float" style="top: 20%; left: 10%;"></div>
+        <div class="floating-shape absolute w-24 h-24 bg-gradient-to-r from-neon-purple/40 to-pink-500/40 rounded-full blur-lg animate-float" style="top: 60%; right: 15%; animation-delay: -2s;"></div>
+        <div class="floating-shape absolute w-40 h-40 bg-gradient-to-r from-blue-500/20 to-neon-teal/30 rounded-full blur-2xl animate-float" style="top: 80%; left: 70%; animation-delay: -4s;"></div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-glass border-b border-white/10" role="navigation">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold bg-gradient-to-r from-neon-teal to-neon-purple bg-clip-text text-transparent">
+                    <a href="index.html">Olaide</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Home">Home</a>
+                    <a href="about.html" class="nav-link text-neon-teal hover:text-neon-teal transition-colors duration-300" aria-label="About">About</a>
+                    <a href="skills.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Skills">Skills</a>
+                    <a href="projects.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Projects">Projects</a>
+                    <a href="contact.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Contact">Contact</a>
+                </div>
+                <button class="md:hidden text-white hover:text-neon-teal transition-colors" id="mobile-menu-btn" aria-label="Toggle mobile menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-dark/95 backdrop-blur-lg hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-xl">
+            <a href="index.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">Home</a>
+            <a href="about.html" class="mobile-nav-link text-neon-teal hover:text-neon-teal transition-colors duration-300">About</a>
+            <a href="skills.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">Skills</a>
+            <a href="projects.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">Projects</a>
+            <a href="contact.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">Contact</a>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="pt-32 pb-20 relative min-h-screen">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Page Header -->
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h1 class="text-6xl md:text-8xl font-bold mb-6">
+                    <span class="bg-gradient-to-r from-neon-teal to-neon-purple bg-clip-text text-transparent">
+                        About
+                    </span>
+                    <span class="block text-white/80">Me</span>
+                </h1>
+                <p class="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+                    Passionate designer, creative thinker, and digital experience architect
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8" data-aos="fade-right">
+                    <div class="space-y-6 text-lg text-white/70 leading-relaxed">
+                        <p>
+                            I'm a passionate UI/UX designer who believes that great design is not just about aesthetics—it's about creating meaningful connections between users and digital experiences.
+                        </p>
+                        <p>
+                            With a keen eye for detail and a deep understanding of user psychology, I craft interfaces that are not only visually stunning but also intuitive and accessible.
+                        </p>
+                        <p>
+                            My design philosophy centers around <span class="text-neon-teal font-semibold">empathy</span>, 
+                            <span class="text-neon-purple font-semibold">innovation</span>, and 
+                            <span class="text-pink-400 font-semibold">purposeful creativity</span>.
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <span class="px-4 py-2 bg-glass backdrop-blur-sm border border-white/10 rounded-full text-sm">5+ Years Experience</span>
+                        <span class="px-4 py-2 bg-glass backdrop-blur-sm border border-white/10 rounded-full text-sm">50+ Projects</span>
+                        <span class="px-4 py-2 bg-glass backdrop-blur-sm border border-white/10 rounded-full text-sm">Award Winning</span>
+                    </div>
+
+                    <!-- Design Values -->
+                    <div class="mt-12 space-y-6">
+                        <h3 class="text-3xl font-bold text-neon-teal mb-6">My Design Values</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 bg-gradient-to-r from-neon-teal to-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                    <span class="text-white font-bold text-sm">1</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold mb-2">User-Centered Approach</h4>
+                                    <p class="text-white/70">Every design decision is driven by user needs and validated through research and testing.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 bg-gradient-to-r from-neon-purple to-pink-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                    <span class="text-white font-bold text-sm">2</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold mb-2">Inclusive Design</h4>
+                                    <p class="text-white/70">Creating experiences that are accessible and enjoyable for users of all abilities and backgrounds.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                    <span class="text-white font-bold text-sm">3</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold mb-2">Continuous Learning</h4>
+                                    <p class="text-white/70">Staying curious and adapting to new technologies, trends, and user behaviors.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative" data-aos="fade-left">
+                    <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                        <div class="aspect-square bg-gradient-to-br from-neon-teal/20 to-neon-purple/20 rounded-2xl mb-6 overflow-hidden">
+                            <img src="https://picsum.photos/400/400?random=1" alt="Olaide Ilesanmi - UI/UX Designer" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2 text-neon-teal">Design Philosophy</h3>
+                        <p class="text-white/70 mb-6">
+                            "Every pixel serves a purpose, every interaction tells a story, and every design solves a human problem."
+                        </p>
+                        
+                        <!-- Quick Stats -->
+                        <div class="grid grid-cols-2 gap-4 pt-6 border-t border-white/10">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-neon-teal">50+</div>
+                                <div class="text-sm text-white/60">Projects</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-neon-purple">5+</div>
+                                <div class="text-sm text-white/60">Years</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-pink-400">25+</div>
+                                <div class="text-sm text-white/60">Clients</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-orange-400">3</div>
+                                <div class="text-sm text-white/60">Awards</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education & Certifications -->
+                    <div class="mt-8 glass-card p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="text-xl font-bold text-white mb-4">Education & Certifications</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <p class="text-white font-medium">Bachelor of Design</p>
+                                    <p class="text-white/60 text-sm">Visual Communication Design</p>
+                                </div>
+                                <span class="text-neon-teal text-sm">2019</span>
+                            </div>
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <p class="text-white font-medium">Google UX Design Certificate</p>
+                                    <p class="text-white/60 text-sm">Coursera</p>
+                                </div>
+                                <span class="text-neon-purple text-sm">2020</span>
+                            </div>
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <p class="text-white font-medium">Design Systems Certification</p>
+                                    <p class="text-white/60 text-sm">Design+Code</p>
+                                </div>
+                                <span class="text-pink-400 text-sm">2022</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience Timeline -->
+            <div class="mt-20" data-aos="fade-up">
+                <h3 class="text-4xl font-bold text-center mb-16">
+                    <span class="bg-gradient-to-r from-neon-purple to-neon-teal bg-clip-text text-transparent">
+                        My Journey
+                    </span>
+                </h3>
+                <div class="max-w-4xl mx-auto">
+                    <div class="relative">
+                        <!-- Timeline line -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-neon-teal to-neon-purple"></div>
+                        
+                        <!-- Timeline items -->
+                        <div class="space-y-12">
+                            <div class="flex items-center relative">
+                                <div class="w-1/2 pr-8 text-right">
+                                    <div class="glass-card p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                                        <h4 class="text-xl font-bold text-neon-teal mb-2">Senior UI/UX Designer</h4>
+                                        <p class="text-white/80 mb-2">TechFlow Solutions</p>
+                                        <p class="text-white/60 text-sm mb-3">2022 - Present</p>
+                                        <p class="text-white/70">Leading design for enterprise SaaS products, managing a team of 3 designers.</p>
+                                    </div>
+                                </div>
+                                <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-neon-teal rounded-full border-4 border-dark"></div>
+                                <div class="w-1/2 pl-8"></div>
+                            </div>
+                            
+                            <div class="flex items-center relative">
+                                <div class="w-1/2 pr-8"></div>
+                                <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-neon-purple rounded-full border-4 border-dark"></div>
+                                <div class="w-1/2 pl-8">
+                                    <div class="glass-card p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                                        <h4 class="text-xl font-bold text-neon-purple mb-2">UI/UX Designer</h4>
+                                        <p class="text-white/80 mb-2">Digital Creative Agency</p>
+                                        <p class="text-white/60 text-sm mb-3">2020 - 2022</p>
+                                        <p class="text-white/70">Designed digital experiences for startups and established brands across various industries.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center relative">
+                                <div class="w-1/2 pr-8 text-right">
+                                    <div class="glass-card p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                                        <h4 class="text-xl font-bold text-pink-400 mb-2">Junior Designer</h4>
+                                        <p class="text-white/80 mb-2">StartUp Studio</p>
+                                        <p class="text-white/60 text-sm mb-3">2019 - 2020</p>
+                                        <p class="text-white/70">Started my career designing mobile apps and web interfaces for early-stage startups.</p>
+                                    </div>
+                                </div>
+                                <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-pink-400 rounded-full border-4 border-dark"></div>
+                                <div class="w-1/2 pl-8"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/10 backdrop-blur-sm bg-glass">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-white/60">
+                © 2025 Olaide Ilesanmi. Crafted with passion and purpose.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="src/js/script.js"></script>
+</body>
+</html>

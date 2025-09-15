@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Featured Projects - Olaide Ilesanmi</title>
+    <meta name="description" content="Explore the featured design projects and case studies by Olaide Ilesanmi">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark': '#0F172A',
+                        'neon-teal': '#14B8A6',
+                        'neon-purple': '#8B5CF6',
+                        'glass': 'rgba(255, 255, 255, 0.1)',
+                        'glass-hover': 'rgba(255, 255, 255, 0.2)',
+                    },
+                    fontFamily: {
+                        'futura': ['Futura', 'Arial', 'sans-serif'],
+                        'space': ['Space Grotesk', 'system-ui', 'sans-serif'],
+                    },
+                    backdropBlur: {
+                        'xs': '2px',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'tilt': 'tilt 10s linear infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+<body class="bg-dark text-white font-space overflow-x-hidden">
+    
+    <!-- Background Elements -->
+    <div id="bg-canvas" class="fixed inset-0 -z-10"></div>
+    <div class="fixed inset-0 -z-10 bg-gradient-to-br from-neon-purple/20 via-dark to-neon-teal/20"></div>
+    
+    <!-- Floating Shapes -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div class="floating-shape absolute w-32 h-32 bg-gradient-to-r from-neon-teal/30 to-neon-purple/30 rounded-full blur-xl animate-float" style="top: 20%; left: 10%;"></div>
+        <div class="floating-shape absolute w-24 h-24 bg-gradient-to-r from-neon-purple/40 to-pink-500/40 rounded-full blur-lg animate-float" style="top: 60%; right: 15%; animation-delay: -2s;"></div>
+        <div class="floating-shape absolute w-40 h-40 bg-gradient-to-r from-blue-500/20 to-neon-teal/30 rounded-full blur-2xl animate-float" style="top: 80%; left: 70%; animation-delay: -4s;"></div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-glass border-b border-white/10" role="navigation">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold bg-gradient-to-r from-neon-teal to-neon-purple bg-clip-text text-transparent">
+                    <a href="index.html">Olaide</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Home">Home</a>
+                    <a href="about.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="About">About</a>
+                    <a href="skills.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Skills">Skills</a>
+                    <a href="projects.html" class="nav-link text-neon-teal hover:text-neon-teal transition-colors duration-300" aria-label="Projects">Projects</a>
+                    <a href="contact.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Contact">Contact</a>
+                </div>
+                <button class="md:hidden text-white hover:text-neon-teal transition-colors" id="mobile-menu-btn" aria-label="Toggle mobile menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-dark/95 backdrop-blur-lg hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-xl">
+            <a href="index.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">Home</a>
+            <a href="about.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">About</a>
+            <a href="skills.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">Skills</a>
+            <a href="projects.html" class="mobile-nav-link text-neon-teal hover:text-neon-teal transition-colors duration-300">Projects</a>
+            <a href="contact.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">Contact</a>
+        </div>
+    </div>
+
+    <!-- Projects Section -->
+    <section id="projects" class="pt-32 pb-20 relative min-h-screen">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Page Header -->
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h1 class="text-6xl md:text-8xl font-bold mb-6">
+                    <span class="bg-gradient-to-r from-neon-teal to-neon-purple bg-clip-text text-transparent">
+                        Featured Projects
+                    </span>
+                </h1>
+                <p class="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+                    A showcase of thoughtful design solutions that solve real problems and create meaningful impact
+                </p>
+            </div>
+            
+            <!-- Project Filter -->
+            <div class="flex flex-wrap justify-center gap-4 mb-16" data-aos="fade-up" data-aos-delay="100">
+                <button class="filter-btn active px-6 py-3 bg-glass backdrop-blur-sm border border-white/20 rounded-full text-white hover:bg-glass-hover hover:border-neon-teal/50 transition-all duration-300" data-filter="all">
+                    All Projects
+                </button>
+                <button class="filter-btn px-6 py-3 bg-glass backdrop-blur-sm border border-white/20 rounded-full text-white hover:bg-glass-hover hover:border-neon-teal/50 transition-all duration-300" data-filter="web">
+                    Web Design
+                </button>
+                <button class="filter-btn px-6 py-3 bg-glass backdrop-blur-sm border border-white/20 rounded-full text-white hover:bg-glass-hover hover:border-neon-teal/50 transition-all duration-300" data-filter="mobile">
+                    Mobile Apps
+                </button>
+                <button class="filter-btn px-6 py-3 bg-glass backdrop-blur-sm border border-white/20 rounded-full text-white hover:bg-glass-hover hover:border-neon-teal/50 transition-all duration-300" data-filter="branding">
+                    Branding
+                </button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid lg:grid-cols-2 gap-8 mb-16">
+                <!-- Project 1 -->
+                <div class="project-card group" data-aos="fade-up" data-aos-delay="100" data-categories="web">
+                    <div class="glass-card backdrop-blur-xl bg-glass border border-white/10 rounded-3xl overflow-hidden hover:bg-glass-hover hover:border-neon-teal/30 transition-all duration-500 hover:scale-[1.02]">
+                        <div class="aspect-video overflow-hidden bg-gradient-to-br from-neon-teal/20 to-neon-purple/20 relative">
+                            <img src="https://picsum.photos/600/400?random=2" alt="FinanceFlow - Financial Dashboard Design" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <span class="px-3 py-1 bg-neon-teal/20 text-neon-teal rounded-full text-sm backdrop-blur-sm">Featured Project</span>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-neon-teal transition-colors">FinanceFlow Dashboard</h3>
+                            <p class="text-white/70 mb-6 group-hover:text-white/90 transition-colors">
+                                A comprehensive financial dashboard redesign that improved user engagement by 150% and reduced task completion time by 40%.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 bg-neon-teal/20 text-neon-teal rounded-full text-sm">UI/UX Design</span>
+                                <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm">Data Visualization</span>
+                                <span class="px-3 py-1 bg-pink-500/20 text-pink-400 rounded-full text-sm">Mobile First</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <button class="inline-flex items-center text-white hover:text-neon-teal transition-colors group-hover:translate-x-2 transform duration-300">
+                                    View Case Study
+                                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </button>
+                                <div class="flex space-x-2">
+                                    <button class="w-10 h-10 bg-glass hover:bg-glass-hover border border-white/20 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                        </svg>
+                                    </button>
+                                    <button class="w-10 h-10 bg-glass hover:bg-glass-hover border border-white/20 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card group" data-aos="fade-up" data-aos-delay="200" data-categories="mobile">
+                    <div class="glass-card backdrop-blur-xl bg-glass border border-white/10 rounded-3xl overflow-hidden hover:bg-glass-hover hover:border-neon-purple/30 transition-all duration-500 hover:scale-[1.02]">
+                        <div class="aspect-video overflow-hidden bg-gradient-to-br from-neon-purple/20 to-pink-500/20 relative">
+                            <img src="https://picsum.photos/600/400?random=3" alt="EcoTrack - Sustainability App Design" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm backdrop-blur-sm">Award Winner</span>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-neon-purple transition-colors">EcoTrack App</h3>
+                            <p class="text-white/70 mb-6 group-hover:text-white/90 transition-colors">
+                                A sustainability tracking app that gamifies eco-friendly habits, resulting in 10k+ downloads in the first month.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm">Mobile App</span>
+                                <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm">Gamification</span>
+                                <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Social Impact</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <button class="inline-flex items-center text-white hover:text-neon-purple transition-colors group-hover:translate-x-2 transform duration-300">
+                                    View Case Study
+                                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </button>
+                                <div class="flex space-x-2">
+                                    <button class="w-10 h-10 bg-glass hover:bg-glass-hover border border-white/20 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                        </svg>
+                                    </button>
+                                    <button class="w-10 h-10 bg-glass hover:bg-glass-hover border border-white/20 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card group" data-aos="fade-up" data-aos-delay="300" data-categories="web">
+                    <div class="glass-card backdrop-blur-xl bg-glass border border-white/10 rounded-3xl overflow-hidden hover:bg-glass-hover hover:border-pink-400/30 transition-all duration-500 hover:scale-[1.02]">
+                        <div class="aspect-video overflow-hidden bg-gradient-to-br from-pink-500/20 to-orange-500/20 relative">
+                            <img src="https://picsum.photos/600/400?random=4" alt="MindSpace - Mental Health Platform Design" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <span class="px-3 py-1 bg-pink-400/20 text-pink-400 rounded-full text-sm backdrop-blur-sm">Healthcare</span>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-pink-400 transition-colors">MindSpace Platform</h3>
+                            <p class="text-white/70 mb-6 group-hover:text-white/90 transition-colors">
+                                A mental health and wellness platform that connects users with resources and community support.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 bg-pink-500/20 text-pink-400 rounded-full text-sm">Health Tech</span>
+                                <span class="px-3 py-1 bg-neon-teal/20 text-neon-teal rounded-full text-sm">Community</span>
+                                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Accessibility</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <button class="inline-flex items-center text-white hover:text-pink-400 transition-colors group-hover:translate-x-2 transform duration-300">
+                                    View Case Study
+                                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </button>
+                                <div class="flex space-x-2">
+                                    <button class="w-10 h-10 bg-glass hover:bg-glass-hover border border-white/20 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                        </svg>
+                                    </button>
+                                    <button class="w-10 h-10 bg-glass hover:bg-glass-hover border border-white/20 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card group" data-aos="fade-up" data-aos-delay="400" data-categories="branding">
+                    <div class="glass-card backdrop-blur-xl bg-glass border border-white/10 rounded-3xl overflow-hidden hover:bg-glass-hover hover:border-blue-400/30 transition-all duration-500 hover:scale-[1.02]">
+                        <div class="aspect-video overflow-hidden bg-gradient-to-br from-blue-500/20 to-indigo-500/20 relative">
+                            <img src="https://picsum.photos/600/400?random=5" alt="CreativeHub - Design Collaboration Tool" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <span class="px-3 py-1 bg-blue-400/20 text-blue-400 rounded-full text-sm backdrop-blur-sm">SaaS Platform</span>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors">CreativeHub Tool</h3>
+                            <p class="text-white/70 mb-6 group-hover:text-white/90 transition-colors">
+                                A collaborative design tool that streamlines the creative process for remote teams worldwide.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Collaboration</span>
+                                <span class="px-3 py-1 bg-neon-teal/20 text-neon-teal rounded-full text-sm">SaaS</span>
+                                <span class="px-3 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-sm">Remote Work</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <button class="inline-flex items-center text-white hover:text-blue-400 transition-colors group-hover:translate-x-2 transform duration-300">
+                                    View Case Study
+                                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </button>
+                                <div class="flex space-x-2">
+                                    <button class="w-10 h-10 bg-glass hover:bg-glass-hover border border-white/20 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                        </svg>
+                                    </button>
+                                    <button class="w-10 h-10 bg-glass hover:bg-glass-hover border border-white/20 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card group" data-aos="fade-up" data-aos-delay="500" data-categories="branding">
+                    <div class="glass-card backdrop-blur-xl bg-glass border border-white/10 rounded-3xl overflow-hidden hover:bg-glass-hover hover:border-emerald-400/30 transition-all duration-500 hover:scale-[1.02]">
+                        <div class="aspect-video overflow-hidden bg-gradient-to-br from-emerald-500/20 to-teal-500/20 relative">
+                            <img src="https://picsum.photos/600/400?random=6" alt="GreenTech - Sustainable Brand Identity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <span class="px-3 py-1 bg-emerald-400/20 text-emerald-400 rounded-full text-sm backdrop-blur-sm">Brand Identity</span>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-emerald-400 transition-colors">GreenTech Brand</h3>
+                            <p class="text-white/70 mb-6 group-hover:text-white/90 transition-colors">
+                                Complete brand identity design for a sustainable technology startup, including logo, guidelines, and marketing materials.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm">Brand Identity</span>
+                                <span class="px-3 py-1 bg-teal-500/20 text-teal-400 rounded-full text-sm">Logo Design</span>
+                                <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">Sustainability</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <button class="inline-flex items-center text-white hover:text-emerald-400 transition-colors group-hover:translate-x-2 transform duration-300">
+                                    View Case Study
+                                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </button>
+                                <div class="flex space-x-2">
+                                    <button class="w-10 h-10 bg-glass hover:bg-glass-hover border border-white/20 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                        </svg>
+                                    </button>
+                                    <button class="w-10 h-10 bg-glass hover:bg-glass-hover border border-white/20 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card group" data-aos="fade-up" data-aos-delay="600" data-categories="mobile">
+                    <div class="glass-card backdrop-blur-xl bg-glass border border-white/10 rounded-3xl overflow-hidden hover:bg-glass-hover hover:border-orange-400/30 transition-all duration-500 hover:scale-[1.02]">
+                        <div class="aspect-video overflow-hidden bg-gradient-to-br from-orange-500/20 to-yellow-500/20 relative">
+                            <img src="https://picsum.photos/600/400?random=7" alt="FoodieConnect - Recipe Sharing App" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <span class="px-3 py-1 bg-orange-400/20 text-orange-400 rounded-full text-sm backdrop-blur-sm">Social App</span>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-orange-400 transition-colors">FoodieConnect App</h3>
+                            <p class="text-white/70 mb-6 group-hover:text-white/90 transition-colors">
+                                A social recipe sharing app that connects food enthusiasts and helps them discover new cuisines.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-sm">Social Network</span>
+                                <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-sm">Recipe Sharing</span>
+                                <span class="px-3 py-1 bg-red-500/20 text-red-400 rounded-full text-sm">Food Tech</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <button class="inline-flex items-center text-white hover:text-orange-400 transition-colors group-hover:translate-x-2 transform duration-300">
+                                    View Case Study
+                                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </button>
+                                <div class="flex space-x-2">
+                                    <button class="w-10 h-10 bg-glass hover:bg-glass-hover border border-white/20 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                        </svg>
+                                    </button>
+                                    <button class="w-10 h-10 bg-glass hover:bg-glass-hover border border-white/20 rounded-full flex items-center justify-center transition-all duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center" data-aos="fade-up">
+                <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-4">
+                        <span class="bg-gradient-to-r from-neon-teal to-neon-purple bg-clip-text text-transparent">
+                            Let's Create Something Amazing
+                        </span>
+                    </h2>
+                    <p class="text-white/70 mb-8 text-lg">
+                        Have a project in mind? I'd love to hear about it and explore how we can bring your vision to life.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="contact.html" class="cta-btn group relative overflow-hidden bg-gradient-to-r from-neon-teal to-neon-purple p-[2px] rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-neon-teal/25">
+                            <span class="block bg-dark rounded-full px-8 py-4 text-lg font-semibold group-hover:bg-transparent transition-colors duration-300">
+                                Start a Project
+                            </span>
+                        </a>
+                        <a href="about.html" class="cta-btn-secondary group relative overflow-hidden border-2 border-white/20 rounded-full px-8 py-4 text-lg font-semibold backdrop-blur-sm bg-glass hover:bg-glass-hover hover:border-neon-teal/50 transition-all duration-300 hover:scale-105">
+                            <span class="relative z-10">Learn More About Me</span>
+                            <div class="absolute inset-0 bg-gradient-to-r from-neon-teal/0 to-neon-purple/0 group-hover:from-neon-teal/20 group-hover:to-neon-purple/20 transition-all duration-300"></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/10 backdrop-blur-sm bg-glass">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-white/60">
+                © 2025 Olaide Ilesanmi. Crafted with passion and purpose.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="src/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olaide Ilesanmi - UI/UX Designer</title>
+    <meta name="description" content="Creative UI/UX Designer crafting exceptional digital experiences">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark': '#0F172A',
+                        'neon-teal': '#14B8A6',
+                        'neon-purple': '#8B5CF6',
+                        'glass': 'rgba(255, 255, 255, 0.1)',
+                        'glass-hover': 'rgba(255, 255, 255, 0.2)',
+                    },
+                    fontFamily: {
+                        'futura': ['Futura', 'Arial', 'sans-serif'],
+                        'space': ['Space Grotesk', 'system-ui', 'sans-serif'],
+                    },
+                    backdropBlur: {
+                        'xs': '2px',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'tilt': 'tilt 10s linear infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+<body class="bg-dark text-white font-space overflow-x-hidden">
+    
+    <!-- Background Elements -->
+    <div id="bg-canvas" class="fixed inset-0 -z-10"></div>
+    <div class="fixed inset-0 -z-10 bg-gradient-to-br from-neon-purple/20 via-dark to-neon-teal/20"></div>
+    
+    <!-- Floating Shapes -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div class="floating-shape absolute w-32 h-32 bg-gradient-to-r from-neon-teal/30 to-neon-purple/30 rounded-full blur-xl animate-float" style="top: 20%; left: 10%;"></div>
+        <div class="floating-shape absolute w-24 h-24 bg-gradient-to-r from-neon-purple/40 to-pink-500/40 rounded-full blur-lg animate-float" style="top: 60%; right: 15%; animation-delay: -2s;"></div>
+        <div class="floating-shape absolute w-40 h-40 bg-gradient-to-r from-blue-500/20 to-neon-teal/30 rounded-full blur-2xl animate-float" style="top: 80%; left: 70%; animation-delay: -4s;"></div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-glass border-b border-white/10" role="navigation">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold bg-gradient-to-r from-neon-teal to-neon-purple bg-clip-text text-transparent">
+                    Olaide
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-neon-teal hover:text-neon-teal transition-colors duration-300" aria-label="Home">Home</a>
+                    <a href="about.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="About">About</a>
+                    <a href="skills.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Skills">Skills</a>
+                    <a href="projects.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Projects">Projects</a>
+                    <a href="contact.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Contact">Contact</a>
+                </div>
+                <button class="md:hidden text-white hover:text-neon-teal transition-colors" id="mobile-menu-btn" aria-label="Toggle mobile menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-dark/95 backdrop-blur-lg hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-xl">
+            <a href="index.html" class="mobile-nav-link text-neon-teal hover:text-neon-teal transition-colors duration-300">Home</a>
+            <a href="about.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">About</a>
+            <a href="skills.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">Skills</a>
+            <a href="projects.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">Projects</a>
+            <a href="contact.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden" role="banner">
+        <div class="text-center z-10 max-w-6xl mx-auto px-6">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="text-6xl md:text-8xl lg:text-9xl font-bold mb-6 leading-none">
+                    <span class="block bg-gradient-to-r from-white via-neon-teal to-neon-purple bg-clip-text text-transparent animate-glow">
+                        OLAIDE
+                    </span>
+                    <span class="block text-white/80 text-4xl md:text-6xl lg:text-7xl font-light">
+                        ILESANMI
+                    </span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl lg:text-3xl text-white/70 mb-8 font-light tracking-wide" data-aos="fade-up" data-aos-delay="200">
+                    UI/UX Designer crafting
+                    <span class="text-neon-teal font-medium"> exceptional </span>
+                    digital experiences
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center" data-aos="fade-up" data-aos-delay="400">
+                    <a href="projects.html" class="cta-btn group relative overflow-hidden bg-gradient-to-r from-neon-teal to-neon-purple p-[2px] rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-neon-teal/25">
+                        <span class="block bg-dark rounded-full px-8 py-4 text-lg font-semibold group-hover:bg-transparent transition-colors duration-300">
+                            View My Work
+                        </span>
+                    </a>
+                    
+                    <a href="contact.html" class="cta-btn-secondary group relative overflow-hidden border-2 border-white/20 rounded-full px-8 py-4 text-lg font-semibold backdrop-blur-sm bg-glass hover:bg-glass-hover hover:border-neon-teal/50 transition-all duration-300 hover:scale-105">
+                        <span class="relative z-10">Get In Touch</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-neon-teal/0 to-neon-purple/0 group-hover:from-neon-teal/20 group-hover:to-neon-purple/20 transition-all duration-300"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-neon-teal rounded-full mt-2 animate-pulse"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="py-20 relative">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <div class="space-y-8" data-aos="fade-up">
+                <h2 class="text-4xl md:text-6xl font-bold">
+                    <span class="bg-gradient-to-r from-neon-teal to-neon-purple bg-clip-text text-transparent">
+                        Designing Digital Experiences
+                    </span>
+                    <span class="block text-white/80 text-2xl md:text-4xl font-light mt-4">
+                        That Matter
+                    </span>
+                </h2>
+                
+                <p class="text-xl text-white/70 max-w-4xl mx-auto leading-relaxed">
+                    I'm a passionate UI/UX designer who believes that great design is not just about aesthetics—it's about creating meaningful connections between users and digital experiences. With 5+ years of experience and 50+ successful projects, I help brands tell their stories through thoughtful, user-centered design.
+                </p>
+
+                <div class="grid md:grid-cols-3 gap-8 mt-16">
+                    <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 bg-gradient-to-br from-neon-teal to-blue-500 rounded-2xl mx-auto mb-6 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-white">User-Centered Design</h3>
+                        <p class="text-white/70">
+                            Every design decision is driven by deep understanding of user needs, behaviors, and goals.
+                        </p>
+                    </div>
+
+                    <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 bg-gradient-to-br from-neon-purple to-pink-500 rounded-2xl mx-auto mb-6 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Innovation & Creativity</h3>
+                        <p class="text-white/70">
+                            Pushing boundaries with fresh ideas while maintaining usability and accessibility standards.
+                        </p>
+                    </div>
+
+                    <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-orange-500 rounded-2xl mx-auto mb-6 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Meaningful Impact</h3>
+                        <p class="text-white/70">
+                            Creating designs that not only look beautiful but solve real problems and drive business results.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mt-12" data-aos="fade-up" data-aos-delay="400">
+                    <a href="about.html" class="cta-btn group relative overflow-hidden bg-gradient-to-r from-neon-purple to-pink-500 p-[2px] rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-neon-purple/25">
+                        <span class="block bg-dark rounded-full px-8 py-4 text-lg font-semibold group-hover:bg-transparent transition-colors duration-300">
+                            Learn More About Me
+                        </span>
+                    </a>
+                    
+                    <a href="skills.html" class="cta-btn-secondary group relative overflow-hidden border-2 border-white/20 rounded-full px-8 py-4 text-lg font-semibold backdrop-blur-sm bg-glass hover:bg-glass-hover hover:border-neon-purple/50 transition-all duration-300 hover:scale-105">
+                        <span class="relative z-10">Explore My Skills</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-neon-purple/0 to-pink-500/0 group-hover:from-neon-purple/20 group-hover:to-pink-500/20 transition-all duration-300"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/10 backdrop-blur-sm bg-glass">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-white/60">
+                © 2025 Olaide Ilesanmi. Crafted with passion and purpose.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="src/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,439 @@
+/* Custom Keyframes and Animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 20px rgba(20, 184, 166, 0.5);
+    }
+    100% {
+        text-shadow: 0 0 30px rgba(20, 184, 166, 0.8), 0 0 40px rgba(139, 92, 246, 0.5);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes tilt {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(1deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-1deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes particleFloat {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(10px, -10px) rotate(90deg);
+    }
+    50% {
+        transform: translate(-5px, -15px) rotate(180deg);
+    }
+    75% {
+        transform: translate(-10px, -5px) rotate(270deg);
+    }
+}
+
+@keyframes bgShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Glassmorphism Effects */
+.glass-card {
+    backdrop-filter: blur(16px) saturate(180%);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        0 8px 32px rgba(31, 38, 135, 0.37),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        0 12px 48px rgba(31, 38, 135, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Navigation Animations */
+.nav-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #14B8A6, #8B5CF6);
+    transition: top 0.3s ease;
+}
+
+.nav-link:hover::before {
+    top: 95%;
+}
+
+/* Button Animations */
+.cta-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.5s;
+}
+
+.cta-btn:hover::before {
+    left: 100%;
+}
+
+.cta-btn-secondary {
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #14B8A6, #8B5CF6);
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.cta-btn-secondary:hover::before {
+    width: 100%;
+}
+
+/* Skill Card Hover Effects */
+.skill-card {
+    perspective: 1000px;
+}
+
+.skill-card:hover .glass-card {
+    transform: rotateY(5deg) rotateX(5deg) scale(1.02);
+    box-shadow: 
+        0 20px 60px rgba(31, 38, 135, 0.6),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Project Card Animations */
+.project-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(20, 184, 166, 0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+.project-card:hover::before {
+    opacity: 1;
+    animation: shine 1.5s ease-in-out;
+}
+
+@keyframes shine {
+    0% {
+        transform: rotate(45deg) translate(-100%, -100%);
+    }
+    100% {
+        transform: rotate(45deg) translate(100%, 100%);
+    }
+}
+
+/* Form Animations */
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    transform: scale(1.02);
+    box-shadow: 
+        0 0 20px rgba(20, 184, 166, 0.3),
+        0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.form-group label {
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus + label,
+.form-group textarea:focus + label,
+.form-group select:focus + label {
+    color: #14B8A6;
+}
+
+/* Social Links Hover Effects */
+.social-link {
+    position: relative;
+}
+
+.social-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: linear-gradient(45deg, #14B8A6, #8B5CF6, #14B8A6);
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.social-link:hover::before {
+    opacity: 1;
+}
+
+/* Particle Animation */
+.floating-shape {
+    animation: particleFloat 20s infinite ease-in-out;
+}
+
+/* Background Canvas Animations */
+#bg-canvas {
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(20, 184, 166, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
+    animation: bgShift 20s ease-in-out infinite;
+    background-size: 400% 400%;
+}
+
+/* Scroll Animations */
+.hero-content {
+    animation: slideUp 1s ease-out;
+}
+
+/* Text Selection Styling */
+::selection {
+    background: rgba(20, 184, 166, 0.3);
+    color: white;
+}
+
+::-moz-selection {
+    background: rgba(20, 184, 166, 0.3);
+    color: white;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #14B8A6, #8B5CF6);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #0D9488, #7C3AED);
+}
+
+/* Focus Styles for Accessibility */
+.nav-link:focus,
+.cta-btn:focus,
+.cta-btn-secondary:focus {
+    outline: 2px solid #14B8A6;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid #14B8A6;
+    outline-offset: 2px;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .floating-shape {
+        display: none;
+    }
+    
+    .glass-card:hover {
+        transform: none;
+    }
+    
+    .skill-card:hover .glass-card {
+        transform: scale(1.02);
+    }
+    
+    .project-card:hover .glass-card {
+        transform: scale(1.02);
+    }
+}
+
+/* High Performance Mode for Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .floating-shape {
+        animation: none;
+    }
+    
+    #bg-canvas {
+        animation: none;
+    }
+}
+
+/* Dark Mode Enhancements */
+@media (prefers-color-scheme: dark) {
+    .glass-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .glass-card:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+}
+
+/* Loading Animation */
+@keyframes loadingPulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.loading {
+    animation: loadingPulse 1.5s ease-in-out infinite;
+}
+
+/* Custom Cursor Effects */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.cursor-pointer:hover {
+    cursor: pointer;
+}
+
+/* Advanced Glassmorphism Variants */
+.glass-elevated {
+    backdrop-filter: blur(20px) saturate(200%);
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 
+        0 16px 64px rgba(31, 38, 135, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.glass-subtle {
+    backdrop-filter: blur(8px) saturate(120%);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 
+        0 4px 16px rgba(31, 38, 135, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Project Filter Button Active State */
+.filter-btn.active {
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.2), rgba(139, 92, 246, 0.2));
+    border-color: rgba(20, 184, 166, 0.6);
+    color: rgb(20, 184, 166);
+    box-shadow: 
+        0 0 20px rgba(20, 184, 166, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.filter-btn.active:hover {
+    border-color: rgba(20, 184, 166, 0.8);
+    box-shadow: 
+        0 0 30px rgba(20, 184, 166, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}

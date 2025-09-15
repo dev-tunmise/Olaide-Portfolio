@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PAGE_TITLE}} - Olaide Ilesanmi</title>
+    <meta name="description" content="{{PAGE_DESCRIPTION}}">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark': '#0F172A',
+                        'neon-teal': '#14B8A6',
+                        'neon-purple': '#8B5CF6',
+                        'glass': 'rgba(255, 255, 255, 0.1)',
+                        'glass-hover': 'rgba(255, 255, 255, 0.2)',
+                    },
+                    fontFamily: {
+                        'futura': ['Futura', 'Arial', 'sans-serif'],
+                        'space': ['Space Grotesk', 'system-ui', 'sans-serif'],
+                    },
+                    backdropBlur: {
+                        'xs': '2px',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'tilt': 'tilt 10s linear infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{CSS_PATH}}">
+</head>
+<body class="bg-dark text-white font-space overflow-x-hidden">
+    
+    <!-- Background Elements -->
+    <div id="bg-canvas" class="fixed inset-0 -z-10"></div>
+    <div class="fixed inset-0 -z-10 bg-gradient-to-br from-neon-purple/20 via-dark to-neon-teal/20"></div>
+    
+    <!-- Floating Shapes -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div class="floating-shape absolute w-32 h-32 bg-gradient-to-r from-neon-teal/30 to-neon-purple/30 rounded-full blur-xl animate-float" style="top: 20%; left: 10%;"></div>
+        <div class="floating-shape absolute w-24 h-24 bg-gradient-to-r from-neon-purple/40 to-pink-500/40 rounded-full blur-lg animate-float" style="top: 60%; right: 15%; animation-delay: -2s;"></div>
+        <div class="floating-shape absolute w-40 h-40 bg-gradient-to-r from-blue-500/20 to-neon-teal/30 rounded-full blur-2xl animate-float" style="top: 80%; left: 70%; animation-delay: -4s;"></div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-glass border-b border-white/10" role="navigation">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold bg-gradient-to-r from-neon-teal to-neon-purple bg-clip-text text-transparent">
+                    <a href="{{HOME_PATH}}">Olaide</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="{{HOME_PATH}}" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Home">Home</a>
+                    <a href="{{ABOUT_PATH}}" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="About">About</a>
+                    <a href="{{SKILLS_PATH}}" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Skills">Skills</a>
+                    <a href="{{PROJECTS_PATH}}" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Projects">Projects</a>
+                    <a href="{{CONTACT_PATH}}" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Contact">Contact</a>
+                </div>
+                <button class="md:hidden text-white hover:text-neon-teal transition-colors" id="mobile-menu-btn" aria-label="Toggle mobile menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-dark/95 backdrop-blur-lg hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-xl">
+            <a href="{{HOME_PATH}}" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">Home</a>
+            <a href="{{ABOUT_PATH}}" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">About</a>
+            <a href="{{SKILLS_PATH}}" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">Skills</a>
+            <a href="{{PROJECTS_PATH}}" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">Projects</a>
+            <a href="{{CONTACT_PATH}}" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">Contact</a>
+        </div>
+    </div>
