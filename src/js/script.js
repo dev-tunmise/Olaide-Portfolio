@@ -655,3 +655,16 @@ if (typeof module !== 'undefined' && module.exports) {
         throttle
     };
 }
+
+function sharePage() {
+  if (navigator.share) {
+    navigator.share({
+      title: document.title,
+      text: "Check out this project!",
+      url: window.location.href
+    })
+    .catch(console.error);
+  } else {
+    alert("Sharing not supported on this browser.");
+  }
+}
