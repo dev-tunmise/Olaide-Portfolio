@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMax Case Study - Olaide Ilesanmi</title>
+    <meta name="description" content="CineMax - A movie theater ticket booking app that allows users to easily book movie tickets and share those tickets with friends.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark': '#0F172A',
+                        'neon-teal': '#14B8A6',
+                        'neon-purple': '#8B5CF6',
+                        'glass': 'rgba(255, 255, 255, 0.1)',
+                        'glass-hover': 'rgba(255, 255, 255, 0.2)',
+                    },
+                    fontFamily: {
+                        'futura': ['Futura', 'Arial', 'sans-serif'],
+                        'space': ['Space Grotesk', 'system-ui', 'sans-serif'],
+                    },
+                    backdropBlur: {
+                        'xs': '2px',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'tilt': 'tilt 10s linear infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../src/css/style.css">
+</head>
+<body class="bg-dark text-white font-space overflow-x-hidden">
+    
+    <!-- Background Elements -->
+    <div id="bg-canvas" class="fixed inset-0 -z-10"></div>
+    <div class="fixed inset-0 -z-10 bg-gradient-to-br from-neon-purple/20 via-dark to-neon-teal/20"></div>
+    
+    <!-- Floating Shapes -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div class="floating-shape absolute w-32 h-32 bg-gradient-to-r from-neon-teal/30 to-neon-purple/30 rounded-full blur-xl animate-float" style="top: 20%; left: 10%;"></div>
+        <div class="floating-shape absolute w-24 h-24 bg-gradient-to-r from-neon-purple/40 to-pink-500/40 rounded-full blur-lg animate-float" style="top: 60%; right: 15%; animation-delay: -2s;"></div>
+        <div class="floating-shape absolute w-40 h-40 bg-gradient-to-r from-blue-500/20 to-neon-teal/30 rounded-full blur-2xl animate-float" style="top: 80%; left: 70%; animation-delay: -4s;"></div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-glass border-b border-white/10" role="navigation">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold bg-gradient-to-r from-neon-teal to-neon-purple bg-clip-text text-transparent">
+                    <a href="../index.html">Olaide</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="../index.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Home">Home</a>
+                    <a href="../about.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="About">About</a>
+                    <a href="../skills.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Skills">Skills</a>
+                    <a href="../projects.html" class="nav-link text-neon-teal hover:text-neon-teal transition-colors duration-300" aria-label="Projects">Projects</a>
+                    <a href="../contact.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Contact">Contact</a>
+                </div>
+                <button class="md:hidden text-white hover:text-neon-teal transition-colors" id="mobile-menu-btn" aria-label="Toggle mobile menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Case Study Content -->
+    <main class="pt-32 pb-20">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <!-- Header Section -->
+            <div class="mb-16" data-aos="fade-up">
+                <div class="flex items-center gap-4 mb-6">
+                    <a href="../projects.html" class="flex items-center gap-2 text-white/70 hover:text-neon-teal transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        Back to Projects
+                    </a>
+                </div>
+                
+                <div class="flex items-center gap-6 mb-6">
+                    <img src="../src/images/CineMax/CineMax-logo.jpg" alt="CineMax Logo" class="w-16 h-16 rounded-2xl">
+                    <h1 class="text-5xl md:text-7xl font-bold">
+                        <span class="bg-gradient-to-r from-neon-teal to-neon-purple bg-clip-text text-transparent">
+                            CineMax
+                        </span>
+                    </h1>
+                </div>
+                
+                <p class="text-xl text-white/80 mb-8 leading-relaxed max-w-4xl">
+                    CineMax is a movie theater ticket booking app that allows users to easily book movie tickets and also share those tickets with friends.
+                </p>
+                
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <span class="px-4 py-2 bg-neon-teal/20 text-neon-teal rounded-full border border-neon-teal/30">Easy Booking</span>
+                    <span class="px-4 py-2 bg-neon-purple/20 text-neon-purple rounded-full border border-neon-purple/30">Share Tickets</span>
+                    <span class="px-4 py-2 bg-pink-500/20 text-pink-400 rounded-full border border-pink-500/30">Accessibility</span>
+                </div>
+                
+                <div class="grid grid-cols-3 gap-4 md:gap-8">
+                    <div class="glass-card p-4 md:p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <h3 class="text-sm md:text-lg font-semibold mb-2 text-neon-teal">Role</h3>
+                        <p class="text-xs md:text-base text-white/70">UX Designer</p>
+                    </div>
+                    <div class="glass-card p-4 md:p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <h3 class="text-sm md:text-lg font-semibold mb-2 text-neon-purple">Timeline</h3>
+                        <p class="text-xs md:text-base text-white/70">4 Weeks</p>
+                    </div>
+                    <div class="glass-card p-4 md:p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <h3 class="text-sm md:text-lg font-semibold mb-2 text-pink-400">Platform</h3>
+                        <p class="text-xs md:text-base text-white/70">Mobile App</p>
+                    </div>
+                </div>
+            </div>
+
+    
+            <!-- Project Overview Section -->
+            <section class="mb-16" data-aos="fade-up" data-aos-delay="200">
+                <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                    <!-- Responsibilities - Full Width -->
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold mb-6 bg-gradient-to-r from-neon-teal to-neon-purple bg-clip-text text-transparent">
+                            Responsibilities
+                        </h2>
+                        <p class="text-lg text-white/80 leading-relaxed">
+                            Conducting interviews, paper, and digital wireframing, creating Information Architecture, low and high-fidelity prototyping, conducting usability studies, accounting for accessibility, and iterating on designs.
+                        </p>
+                    </div>
+                    
+                    <!-- Problem & Goals - Side by Side -->
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Problem Statement -->
+                        <div class="glass-card p-6 bg-red-500/10 border border-red-500/20 rounded-2xl">
+                            <h3 class="text-2xl font-bold mb-4 bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
+                                Problem Statement
+                            </h3>
+                            <div class="space-y-3">
+                                <p class="text-white/80 leading-relaxed">
+                                    Movie ticket booking platforms rarely offer the option of distributing the tickets to the appropriate owners.
+                                </p>
+                                <p class="text-white/80 leading-relaxed">
+                                    The platform for booking seats at the movie theater are often not equipped with options for people with disabilities.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Goals -->
+                        <div class="glass-card p-6 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl">
+                            <h3 class="text-2xl font-bold mb-4 bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent">
+                                Goals
+                            </h3>
+                            <p class="text-white/80 leading-relaxed">
+                                Design a movie ticket booking app that simplifies the process for people with disabilities and offers the option to distribute movie tickets to different recipients.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Process Steps -->
+            <section class="mb-16" data-aos="fade-up" data-aos-delay="500">
+                <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                    <h2 class="text-3xl font-bold mb-8 bg-gradient-to-r from-neon-teal to-neon-purple bg-clip-text text-transparent">
+                        Design Process
+                    </h2>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-gradient-to-r from-neon-teal to-neon-purple rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl font-bold text-white">1</span>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Understanding the User</h3>
+                            <p class="text-white/70">Research, interviews, and personas</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-gradient-to-r from-neon-purple to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl font-bold text-white">2</span>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Starting the Design</h3>
+                            <p class="text-white/70">Sketches and wireframes</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl font-bold text-white">3</span>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Refining the Design</h3>
+                            <p class="text-white/70">High-fidelity prototypes</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Understanding the User -->
+            <section class="mb-16" data-aos="fade-up" data-aos-delay="600">
+                <h2 class="text-4xl font-bold mb-8 bg-gradient-to-r from-neon-teal to-neon-purple bg-clip-text text-transparent">
+                    Understanding the User
+                </h2>
+                
+                <!-- Interviews - Image Right, Content Left -->
+                <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl mb-8">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4 text-neon-teal">Interviews</h3>
+                            <p class="text-lg text-white/80 leading-relaxed mb-6">
+                                During the ideation phase of the project, I conducted user interviews to build new personas and to inform the design. I prepared an interview script with 32 open-ended questions, focusing on our target audiences' values, motivations, and daily routines. In 4 days, I recruited and interviewed 7 users remotely. We referenced the user interview findings throughout the entire design process.
+                            </p>
+                            
+                        </div>
+                        <div>
+                            <img src="../src/images/CineMax/CineMax-interview.png" alt="CineMax User Interview Process" class="w-full rounded-2xl">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Journey - Image Left, Content Right -->
+                <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl mb-8">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <img src="../src/images/CineMax/Cinemax-user-journey.png" alt="CineMax User Journey Map" class="w-full rounded-2xl">
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4 text-pink-400">User Journey</h3>
+                            <p class="text-lg text-white/80 leading-relaxed">
+                                With the user's pain point and business goal in mind, I made sure that our users are able to book a movie ticket without any hiccups. So, we sketched a current-state user journey map, to identify opportunities for improvement. We identified 2 unnecessary steps and potential dropoff points in the flow. By eliminating these from the new design, we ended up with a much faster booking experience that contributed to overall user satisfaction.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personas - Image Right, Content Left -->
+                <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4 text-neon-purple">Personas</h3>
+                            <p class="text-lg text-white/80 leading-relaxed mb-6">
+                                To empathize and understand the needs of the users, I created empathy maps and personas based on qualitative research conducted through user interviews.
+                            </p>
+                            <p class="text-lg text-white/80 leading-relaxed">
+                                According to the research, people with disabilities are frequently overlooked during the online movie ticket booking process. The research also confirmed the assumption that people will frequently book refreshments online to avoid long lines at movie theaters.
+                            </p>
+                        </div>
+                        <div>
+                            <img src="../src/images/CineMax/CineMax-personas.png" alt="CineMax User Personas" class="w-full rounded-2xl">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Information Architecture/User Flow -->
+            <section class="mb-16" data-aos="fade-up" data-aos-delay="600">
+                <h2 class="text-4xl font-bold mb-8 bg-gradient-to-r from-neon-teal to-neon-purple bg-clip-text text-transparent">
+                    Information Architecture/User Flow
+                </h2>
+                <div class="w-full">
+                    <img src="../src/images/CineMax/Big-image.png" alt="CineMax Information Architecture and User Flow" class="w-full rounded-2xl">
+                </div>
+            </section>
+
+            
+            <!-- Starting the Design -->
+            <section class="mb-16" data-aos="fade-up" data-aos-delay="700">
+                <h2 class="text-4xl font-bold mb-8 bg-gradient-to-r from-neon-purple to-pink-500 bg-clip-text text-transparent">
+                    Starting the Design
+                </h2>
+                
+                <!-- Sketches - Image Right, Content Left -->
+                <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl mb-8">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4 text-neon-teal">Sketches</h3>
+                            <p class="text-lg text-white/80 leading-relaxed">
+                                I began the design process with low-fidelity sketches and wireframes to accelerate decision-making through visualization without losing time. My sketches were based on the initial user interviews, the business goal, and the heuristic evaluation. I prioritized showing cinemas that have accessibility options for the user by including accessibility icons on the select theater screen, making it easy for users with disabilities to choose cinemas that are suitable for their condition.
+                            </p>
+                        </div>
+                        <div>
+                            <img src="../src/images/CineMax/CineMax-sketches.png" alt="CineMax Initial Sketches" class="w-full rounded-2xl">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Digital Wireframes - Image Left, Content Right -->
+                <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="flex justify-center">
+                            <img src="../src/images/CineMax/Digital wireframes.png" alt="CineMax Digital Wireframes" class="w-4/5 max-w-md rounded-2xl">
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4 text-neon-purple">Digital Wireframes</h3>
+                            <p class="text-lg text-white/80 leading-relaxed mb-6">
+                                Using Figma, I translated my first sketches into low-fidelity wireframes. I made sure to base the screen design on feedback and user research findings. At this stage, the wireframes were defined enough for some user testing.
+                            </p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Usability Testing -->
+            <section class="mb-16" data-aos="fade-up" data-aos-delay="800">
+                <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h2 class="text-3xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+                                Usability Testing
+                            </h2>
+                            <p class="text-lg text-white/80 leading-relaxed mb-8">
+                                I created a fully-functional, mid-fidelity prototype of the new flows using Figma. To confirm whether or not the product aligns with the actual expectations of the users. I conducted an unmoderated usability test with 7 users which span for 2 rounds.
+                            </p>
+                            
+                            <div class="glass-card p-6 bg-red-500/10 border border-red-500/20 rounded-2xl">
+                                <h4 class="text-xl font-bold mb-3 text-red-400">Issue 01</h4>
+                                <p class="text-white/80 mb-4">Users need better options for assigning owners to tickets.</p>
+                                <h5 class="font-semibold text-green-400 mb-2">Solution 01</h5>
+                                <p class="text-white/70">Early designs allowed for some customization, but after conducting usability tests, I revised the design to include a contact list where users can select and assign tickets' owners from their in-app contacts.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="../src/images/CineMax/CineMax-usability-testing.png" alt="CineMax Usability Testing Process" class="w-full rounded-2xl">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CineMax Rounds Image -->
+            <section class="mb-16" data-aos="fade-up" data-aos-delay="850">
+                <div class="w-full">
+                    <img src="../src/images/CineMax/Cinemax-rounds.png" alt="CineMax Design Rounds" class="w-full rounded-2xl">
+                </div>
+            </section>
+
+            <!-- Refining the Design -->
+            <section class="mb-16" data-aos="fade-up" data-aos-delay="900">
+                <h2 class="text-4xl font-bold mb-8 bg-gradient-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent">
+                    Refining the Design
+                </h2>
+                
+                <!-- UI Design - Image Left, Content Right -->
+                <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl mb-8">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <img src="../src/images/CineMax/CinaMax-ui-design.png" alt="CineMax UI Design Process" class="w-full rounded-2xl">
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4 text-neon-teal">UI Design</h3>
+                            <div class="space-y-4 text-lg text-white/80 leading-relaxed">
+                                <p>Once the usability issues were resolved, I moved on to design the final screens in Figma. My goal was to create a visual identity that aligned with the brand's values.</p>
+                                <p>I used the dark theme, to give a sophisticated look and to pop the movie thumbnails.</p>
+                                <p>For the app color style, I chose colors that met the WCAG and ran an AB test to validate the decision.</p>
+                                <p>I focused on the Mobile platform, to cater to the present and next generation of users.</p>
+                                <p>To help users understand the designs, I used detailed imagery for the snacks and added a movie trailer.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Final Design Showcase - Content Only with phone screens -->
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="glass-card p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                        <h4 class="text-xl font-bold mb-4 text-neon-purple">User Flow Optimization</h4>
+                        <img src="../src/images/CineMax/CineMax-phone-screen-1.jpg" alt="CineMax Optimized Home Screen" class="w-full rounded-xl mb-4">
+                        <p class="text-white/70">Streamlined home screen focusing on quick movie discovery and accessibility options.</p>
+                    </div>
+                    <div class="glass-card p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                        <h4 class="text-xl font-bold mb-4 text-pink-400">Ticket Sharing Feature</h4>
+                        <img src="../src/images/CineMax/Phone Screen-4.jpg" alt="CineMax Ticket Sharing" class="w-full rounded-xl mb-4">
+                        <p class="text-white/70">Innovative ticket distribution system allowing users to assign tickets to friends directly from their contacts.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CineMax Fidelity Screen -->
+            <section class="mb-16" data-aos="fade-up" data-aos-delay="950">
+                <div class="w-full">
+                    <img src="../src/images/CineMax/CineMax-fidelity-screen.png" alt="CineMax High Fidelity Screens" class="w-full rounded-2xl">
+                </div>
+            </section>
+
+            <!-- Accessibility Considerations -->
+            <section class="mb-16" data-aos="fade-up" data-aos-delay="1000">
+                <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h2 class="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                                Accessibility Considerations
+                            </h2>
+                            
+                            <div class="space-y-4 text-lg text-white/80 leading-relaxed mb-6">
+                                <p>For the app color style, I chose colors that met the WCAG and ran an AB test to validate the decision.</p>
+                                <p>To help users understand the designs, I used detailed imagery for the snacks and added a movie trailer.</p>
+                                <p>To cater to the needs of users who are underrepresented, specifically those with disabilities, I employed the use of accessibility icons to assist in selecting the ideal cinema.</p>
+                            </div>
+                            
+                            <div class="p-4 bg-blue-500/10 border border-blue-500/20 rounded-xl">
+                                <p class="text-blue-400 font-semibold">Accessibility icons: For users with disability</p>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="../src/images/CineMax/CineMax-accessibility-consideration.png" alt="CineMax Accessibility Features and Considerations" class="w-full rounded-2xl">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Takeaways -->
+            <section class="mb-16" data-aos="fade-up" data-aos-delay="1100">
+                <h2 class="text-4xl font-bold mb-8 bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
+                    Key Takeaways
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                        <h3 class="text-2xl font-bold mb-4 text-emerald-400">Impact</h3>
+                        <p class="text-lg text-white/80 leading-relaxed">
+                            A superb cinema-going experience is made possible by the CineMax app by simplifying the method of booking movie tickets and focusing more on how to make the experience comfortable for users with disabilities.
+                        </p>
+                    </div>
+                    
+                    <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                        <h3 class="text-2xl font-bold mb-4 text-teal-400">What I Learnt</h3>
+                        <p class="text-lg text-white/80 leading-relaxed">
+                            In the process of creating an app, the first ideas don't have to be perfect. Hence, never underestimate the importance of user tests. Usability studies and peer feedback influenced each iteration of the app's design.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Next Steps -->
+            <section class="mb-16" data-aos="fade-up" data-aos-delay="1200">
+                <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                    <h2 class="text-3xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                        Next Steps
+                    </h2>
+                    <ul class="space-y-3 text-lg text-white/80">
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 bg-neon-teal rounded-full mt-3 flex-shrink-0"></div>
+                            <span>Conduct another round of usability studies to validate whether the pain points users experienced have been effectively addressed.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 bg-neon-purple rounded-full mt-3 flex-shrink-0"></div>
+                            <span>Conduct more user research to determine any new areas of need.</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Navigation -->
+            <section class="text-center" data-aos="fade-up" data-aos-delay="1300">
+                <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                    <h3 class="text-2xl font-bold mb-6 bg-gradient-to-r from-neon-teal to-neon-purple bg-clip-text text-transparent">
+                        Explore More Projects
+                    </h3>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="../projects.html" class="cta-btn group relative overflow-hidden bg-gradient-to-r from-neon-teal to-neon-purple p-[2px] rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-neon-teal/25">
+                            <span class="block bg-dark rounded-full px-8 py-4 text-lg font-semibold group-hover:bg-transparent transition-colors duration-300">
+                                All Projects
+                            </span>
+                        </a>
+                        <a href="../contact.html" class="cta-btn-secondary group relative overflow-hidden border-2 border-white/20 rounded-full px-8 py-4 text-lg font-semibold backdrop-blur-sm bg-glass hover:bg-glass-hover hover:border-neon-teal/50 transition-all duration-300 hover:scale-105">
+                            <span class="relative z-10">Get in Touch</span>
+                            <div class="absolute inset-0 bg-gradient-to-r from-neon-teal/0 to-neon-purple/0 group-hover:from-neon-teal/20 group-hover:to-neon-purple/20 transition-all duration-300"></div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/10 backdrop-blur-sm bg-glass">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-white/60">
+                © 2025 Olaide Ilesanmi. Crafted with passion and purpose.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../src/js/script.js"></script>
+</body>
+</html>

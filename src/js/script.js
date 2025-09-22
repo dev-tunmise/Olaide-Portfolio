@@ -655,16 +655,108 @@ if (typeof module !== 'undefined' && module.exports) {
         throttle
     };
 }
-
+// Share button functionality
 function sharePage() {
-  if (navigator.share) {
-    navigator.share({
-      title: document.title,
-      text: "Check out this project!",
-      url: window.location.href
-    })
-    .catch(console.error);
-  } else {
-    alert("Sharing not supported on this browser.");
-  }
+    document.getElementById('shareModal').classList.remove('hidden');
 }
+
+function closeShareModal() {
+    document.getElementById('shareModal').classList.add('hidden');
+}
+
+function shareToWhatsApp() {
+    const text = encodeURIComponent("Check out this amazing project!");
+    const url = encodeURIComponent(window.location.href);
+    window.open(`https://wa.me/?text=${text}%20${url}`, '_blank');
+}
+
+function shareToMessenger() {
+    const url = encodeURIComponent(window.location.href);
+    window.open(`https://www.messenger.com/new?text=Check%20out%20this%20amazing%20project!%20${url}`, '_blank');
+}
+
+function shareToTwitter() {
+    const text = encodeURIComponent("Check out this amazing project!");
+    const url = encodeURIComponent(window.location.href);
+    window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
+}
+
+function copyProjectLink() {
+    const url = window.location.href;
+    
+    // Use the modern Clipboard API if available
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(url).then(() => {
+            showCopySuccess();
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+            fallbackCopyTextToClipboard(url);
+        });
+    } else {
+        // Fallback for older browsers
+        fallbackCopyTextToClipboard(url);
+    }
+}
+
+function fallbackCopyTextToClipboard(text) {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    
+    // Avoid scrolling to bottom
+    textArea.style.top = "0";
+    textArea.style.left = "0";
+    textArea.style.position = "fixed";
+    
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    
+    try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+            showCopySuccess();
+        } else {
+            console.error('Fallback: Unable to copy');
+        }
+    } catch (err) {
+        console.error('Fallback: Unable to copy', err);
+    }
+    
+    document.body.removeChild(textArea);
+}
+
+function showCopySuccess() {
+    const button = document.getElementById('copyButton');
+    const originalText = button.innerHTML;
+    
+    button.innerHTML = `
+        <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+        </svg>
+        <span>Link Copied!</span>
+    `;
+    
+    button.classList.remove('bg-gray-600/20', 'border-gray-600/30', 'hover:bg-gray-600/30');
+    button.classList.add('bg-green-600/20', 'border-green-600/30');
+    
+    setTimeout(() => {
+        button.innerHTML = originalText;
+        button.classList.remove('bg-green-600/20', 'border-green-600/30');
+        button.classList.add('bg-gray-600/20', 'border-gray-600/30', 'hover:bg-gray-600/30');
+    }, 2000);
+}
+
+// Close modal when clicking outside of it
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('shareModal');
+    if (modal && event.target === modal) {
+        closeShareModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeShareModal();
+    }
+});
