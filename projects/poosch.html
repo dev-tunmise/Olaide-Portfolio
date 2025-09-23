@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poosch Case Study - Olaide Ilesanmi</title>
+    <meta name="description" content="Poosch - An all-new visual-challenge social networking app that offers users the ideal opportunity to showcase their talents and make friends while generating income.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark': '#0F172A',
+                        'neon-teal': '#14B8A6',
+                        'neon-purple': '#8B5CF6',
+                        'glass': 'rgba(255, 255, 255, 0.1)',
+                        'glass-hover': 'rgba(255, 255, 255, 0.2)',
+                    },
+                    fontFamily: {
+                        'futura': ['Futura', 'Arial', 'sans-serif'],
+                        'space': ['Space Grotesk', 'system-ui', 'sans-serif'],
+                    },
+                    backdropBlur: {
+                        'xs': '2px',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'tilt': 'tilt 10s linear infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../src/css/style.css">
+</head>
+<body class="bg-dark text-white font-space overflow-x-hidden">
+    
+    <!-- Background Elements -->
+    <div id="bg-canvas" class="fixed inset-0 -z-10"></div>
+    <div class="fixed inset-0 -z-10 bg-gradient-to-br from-neon-purple/20 via-dark to-neon-teal/20"></div>
+    
+    <!-- Floating Shapes -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div class="floating-shape absolute w-32 h-32 bg-gradient-to-r from-neon-teal/30 to-neon-purple/30 rounded-full blur-xl animate-float" style="top: 20%; left: 10%;"></div>
+        <div class="floating-shape absolute w-24 h-24 bg-gradient-to-r from-neon-purple/40 to-pink-500/40 rounded-full blur-lg animate-float" style="top: 60%; right: 15%; animation-delay: -2s;"></div>
+        <div class="floating-shape absolute w-40 h-40 bg-gradient-to-r from-blue-500/20 to-neon-teal/30 rounded-full blur-2xl animate-float" style="top: 80%; left: 70%; animation-delay: -4s;"></div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-glass border-b border-white/10" role="navigation">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold bg-gradient-to-r from-neon-teal to-neon-purple bg-clip-text text-transparent">
+                    <a href="../index.html">Olaide</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="../index.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Home">Home</a>
+                    <a href="../about.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="About">About</a>
+                    <a href="../skills.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Skills">Skills</a>
+                    <a href="../projects.html" class="nav-link text-neon-teal hover:text-neon-teal transition-colors duration-300" aria-label="Projects">Projects</a>
+                    <a href="../contact.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Contact">Contact</a>
+                </div>
+                <button class="md:hidden text-white hover:text-neon-teal transition-colors" id="mobile-menu-btn" aria-label="Toggle mobile menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Case Study Content -->
+    <main class="pt-32 pb-20">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <!-- Header Section -->
+            <div class="mb-16" data-aos="fade-up">
+                <div class="flex items-center gap-4 mb-6">
+                    <a href="../projects.html" class="flex items-center gap-2 text-white/70 hover:text-neon-teal transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        Back to Projects
+                    </a>
+                </div>
+                
+                <div class="flex items-center gap-6 mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center">
+                        <span class="text-2xl font-bold text-white">P</span>
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-bold">
+                        <span class="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                            Poosch
+                        </span>
+                    </h1>
+                </div>
+                
+                <p class="text-xl text-white/80 mb-8 leading-relaxed max-w-4xl">
+                    An all-new visual-challenge social networking app that offers users the ideal opportunity to showcase their talents and make friends, altogether while generating income either via winning cash rewards through challenges or by donations made through giveaways from loyal fans.
+                </p>
+                
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <span class="px-4 py-2 bg-purple-500/20 text-purple-400 rounded-full border border-purple-500/30">Visual Challenges</span>
+                    <span class="px-4 py-2 bg-pink-500/20 text-pink-400 rounded-full border border-pink-500/30">Social Networking</span>
+                    <span class="px-4 py-2 bg-green-500/20 text-green-400 rounded-full border border-green-500/30">Cash Rewards</span>
+                </div>
+                
+                <div class="grid grid-cols-3 gap-4 md:gap-8">
+                    <div class="glass-card p-4 md:p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <h3 class="text-sm md:text-lg font-semibold mb-2 text-purple-400">Role</h3>
+                        <p class="text-xs md:text-base text-white/70">UX Designer</p>
+                    </div>
+                    <div class="glass-card p-4 md:p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <h3 class="text-sm md:text-lg font-semibold mb-2 text-pink-400">Platform</h3>
+                        <p class="text-xs md:text-base text-white/70">Mobile App</p>
+                    </div>
+                    <div class="glass-card p-4 md:p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <h3 class="text-sm md:text-lg font-semibold mb-2 text-neon-teal">Type</h3>
+                        <p class="text-xs md:text-base text-white/70">Social Media</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Responsibilities -->
+            <section class="mb-16" data-aos="fade-up" data-aos-delay="200">
+                <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                    <h2 class="text-3xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                        Core Responsibilities
+                    </h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <div class="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                                <span class="text-white/80">UX Researcher & Analyst</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-2 h-2 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
+                                <span class="text-white/80">Information Architect (user personas, mental models, user journeys, task analysis and user flows, site maps)</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-2 h-2 bg-neon-teal rounded-full mt-2 flex-shrink-0"></div>
+                                <span class="text-white/80">Visual Designer (Including wireframe design)</span>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <div class="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                                <span class="text-white/80">Content Auditor</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-2 h-2 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                                <span class="text-white/80">Usability Test Moderator (organisation and moderating)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5W's Framework -->
+            <section class="mb-16" data-aos="fade-up" data-aos-delay="300">
+                <h2 class="text-4xl font-bold mb-8 bg-gradient-to-r from-neon-teal to-purple-400 bg-clip-text text-transparent">
+                    5W's Framework
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="glass-card p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <h3 class="text-xl font-bold mb-3 text-purple-400">Who</h3>
+                        <p class="text-white/80">Content creators and individuals with access to social networking apps.</p>
+                    </div>
+                    <div class="glass-card p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <h3 class="text-xl font-bold mb-3 text-pink-400">What</h3>
+                        <p class="text-white/80">A new visual-challenge social networking app that offers users the ideal opportunity to showcase their talents and make friends, altogether while generating income via winning cash rewards through challenges or by donations made through giveaways from loyal fans.</p>
+                    </div>
+                    <div class="glass-card p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <h3 class="text-xl font-bold mb-3 text-neon-teal">When</h3>
+                        <p class="text-white/80">Users can visit the social app at any time to either create content or enter a challenge pool to earn rewards.</p>
+                    </div>
+                    <div class="glass-card p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <h3 class="text-xl font-bold mb-3 text-green-400">Where</h3>
+                        <p class="text-white/80">Users can access the app on any device with a connection to the internet.</p>
+                    </div>
+                    <div class="glass-card p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl md:col-span-2">
+                        <h3 class="text-xl font-bold mb-3 text-orange-400">Why</h3>
+                        <p class="text-white/80">Users want an opportunity to earn a living through creating content while still networking in a friendly manner.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Problem & Goals -->
+            <section class="mb-16" data-aos="fade-up" data-aos-delay="400">
+                <!-- Problem Image and Content - Image Left, Content Right -->
+                <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl mb-8">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="flex justify-center">
+                            <img src="../src/images/poosch/poosch-problem.JPG" alt="Poosch Problem Statement Research" class="w-full max-w-lg rounded-2xl">
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4 bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
+                                Problem Statement
+                            </h3>
+                            <p class="text-lg text-white/80 leading-relaxed mb-4">
+                                According to a survey conducted, it revealed that most social media users create various viral video or photo challenges on their social media platforms, either on TikTok, Snapchat or Instagram, etc.
+                            </p>
+                            <p class="text-lg text-white/80 leading-relaxed">
+                                But a major setback is that the creators are rarely credited or influenced by their innovation. It showed that over 90% of content creators would love to have a social media platform which can generate a sort of income for their creativity while still maintaining a friendly, social interface.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Goals Section -->
+                <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                    <h3 class="text-2xl font-bold mb-6 bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent text-center">
+                        Goals
+                    </h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="glass-card p-6 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl">
+                            <div class="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center mb-4">
+                                <span class="text-white font-bold">1</span>
+                            </div>
+                            <p class="text-white/80">Create a video-challenge social networking app, where challengers earn real cash rewards.</p>
+                        </div>
+                        <div class="glass-card p-6 bg-green-500/10 border border-green-500/20 rounded-2xl">
+                            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-4">
+                                <span class="text-white font-bold">2</span>
+                            </div>
+                            <p class="text-white/80">Creating a source of income for every user/customer of the app. (Side-job)</p>
+                        </div>
+                        <div class="glass-card p-6 bg-teal-500/10 border border-teal-500/20 rounded-2xl">
+                            <div class="w-12 h-12 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-xl flex items-center justify-center mb-4">
+                                <span class="text-white font-bold">3</span>
+                            </div>
+                            <p class="text-white/80">Cash Reward for users/content creators via challenges or Give away with E-wallet for depositing and saving cash rewards</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Design Process -->
+            <section class="mb-16" data-aos="fade-up" data-aos-delay="500">
+                <h2 class="text-4xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    Design Process
+                </h2>
+                
+                <!-- Double Diamond Image and Content - Image Right, Content Left -->
+                <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl mb-8">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 text-neon-teal">Double Diamond Approach</h3>
+                            <p class="text-lg text-white/80 leading-relaxed mb-8">
+                                Using the double diamond design thinking approach, we were able to take the design challenge using the duality of divergent and convergent thinking.
+                            </p>
+                            
+                            
+                        </div>
+                        <div>
+                            <img src="../src/images/poosch/Poosch-double-diamond.png" alt="Poosch Double Diamond Design Process" class="w-full rounded-2xl">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Competitive Analysis -->
+            <section class="mb-16" data-aos="fade-up" data-aos-delay="600">
+                <h2 class="text-4xl font-bold mb-8 bg-gradient-to-r from-neon-teal to-purple-400 bg-clip-text text-transparent">
+                    Competitive Analysis
+                </h2>
+                
+                <!-- TikTok Analysis -->
+                <div class="glass-card p-4 md:p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl mb-8">
+                    <div class="flex flex-col md:flex-row items-center gap-4 md:gap-6 mb-6 md:mb-8">
+                        <div class="relative flex-shrink-0">
+                            <div class="w-32 h-32 md:w-60 md:h-60 bg-gradient-to-br from-black via-gray-800 to-black rounded-2xl p-3 md:p-6 shadow-2xl border border-white/20">
+                                <img src="../src/images/poosch/tiktok-logo.png" alt="TikTok Logo" class="w-full h-full object-contain">
+                            </div>
+                        </div>
+                        <div class="text-center md:text-left">
+                            <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">TikTok</h3>
+                            <p class="text-sm text-white/60">Short-form Video Platform</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-white/80 mb-6 md:mb-8 text-base md:text-lg leading-relaxed">
+                        TikTok is the Chinese creative social media platform primarily driven by short-form video content. It launches challenges of various types to tap into the creativity of its users and generate engaging (if not addicting content) accessible via an infinite feed.
+                    </p>
+                    
+                    <div class="grid lg:grid-cols-2 gap-6 md:gap-8">
+                        <div class="glass-card p-4 md:p-6 bg-green-500/10 border border-green-500/20 rounded-2xl">
+                            <h4 class="text-lg md:text-xl font-bold mb-4 md:mb-6 text-green-400">Strengths</h4>
+                            <div class="space-y-3 md:space-y-4 text-white/80">
+                                <div>
+                                    <h5 class="font-semibold text-green-300 mb-2">Market Share</h5>
+                                    <p class="text-sm">Approximately 1.1 billion people are estimated to be active users of TikTok as of 2021. The video-sharing social media platform operates in over 154 countries across the globe, with approximately 60% of its users being Gen Z.</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-green-300 mb-2">Free Service and Ease of Use</h5>
+                                    <p class="text-sm">In the years before the introduction of TikTok, many video editing was done by professionals using very complex software. TikTok, however, allows users to quickly edit and create high quality short videos with ease. Additionally, it is free of charge, just download and start using the app.</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-green-300 mb-2">User Safety and Privacy</h5>
+                                    <p class="text-sm">Direct private messages cannot be sent to a content creator on TikTok if they are not a follower. However, the platform provides the content creator option in the settings whether to allow followers to leave messages or not. It demonstrates how much the platform values the privacy of its users.</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-green-300 mb-2">Teamwork Culture</h5>
+                                    <p class="text-sm">Friends, family, and acquaintances get together to make videos, which is a fun activity.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4 md:space-y-6">
+                            <div class="glass-card p-4 md:p-6 bg-red-500/10 border border-red-500/20 rounded-2xl">
+                                <h4 class="text-lg md:text-xl font-bold mb-4 md:mb-6 text-red-400">Weaknesses</h4>
+                                <div class="space-y-3 md:space-y-4 text-white/80">
+                                    <div>
+                                        <h5 class="font-semibold text-red-300 mb-2">No Equity in Income</h5>
+                                        <p class="text-sm mb-3">Although there are ways to earn income on TikTok such as:</p>
+                                        <ul class="text-xs space-y-1 ml-4">
+                                            <li>• Management services: Creating strategies to boost views and followers</li>
+                                            <li>• Donations: Coin donations from viewers via Live</li>
+                                            <li>• TikTok ads platform: Selling products via ads platform</li>
+                                        </ul>
+                                        <p class="text-sm mt-3">However, the most prevailing is Product Influencing. The drawback is that users with smaller followings are underrepresented because they are less likely to land influencing gigs and are not able to monetize their content.</p>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-red-300 mb-2">Addictive and Time Consuming</h5>
+                                        <p class="text-sm">As much as the company wants to be profitable, nobody is really scrutinizing the users' mental health. According to a report by Wallaroomedia, the average TikTok user spends 52 minutes per day on the app. 90 minutes per day are wasted by kids between the ages of 4 and 15 on TikTok. However, they access the platform about 5 to 8 times per day.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                                <div class="glass-card p-3 md:p-4 bg-blue-500/10 border border-blue-500/20 rounded-xl">
+                                    <h5 class="font-semibold text-blue-400 mb-2 text-sm">Opportunities</h5>
+                                    <p class="text-xs text-white/70">Improve its reputation: Recently, TikTok has come under fire for its light-hearted content. Many people have criticized it, claiming that it harms society.</p>
+                                </div>
+                                <div class="glass-card p-3 md:p-4 bg-orange-500/10 border border-orange-500/20 rounded-xl">
+                                    <h5 class="font-semibold text-orange-400 mb-2 text-sm">Threats</h5>
+                                    <p class="text-xs text-white/70">A controversy has arisen surrounding this app, which has sparked the suspicion of governments around the globe, who are debating whether to allow the app to operate in their countries.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instagram Analysis -->
+                <div class="glass-card p-4 md:p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                    <div class="flex flex-col md:flex-row items-center gap-4 md:gap-6 mb-6 md:mb-8">
+                        <div class="relative flex-shrink-0">
+                            <div class="w-32 h-32 md:w-60 md:h-60 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 rounded-2xl p-3 md:p-6 shadow-2xl border border-white/20">
+                                <img src="../src/images/poosch/instagram-logo.jpeg" alt="Instagram Logo" class="w-full h-full object-contain rounded-lg">
+                            </div>
+                        </div>
+                        <div class="text-center md:text-left">
+                            <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">Instagram</h3>
+                            <p class="text-sm text-white/60">Visual Content Platform</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-white/80 mb-6 md:mb-8 text-base md:text-lg leading-relaxed">
+                        Instagram is another social media platform driven by visual content for followers to interact with through likes, comments, and shares.
+                    </p>
+                    
+                    <div class="grid lg:grid-cols-2 gap-6 md:gap-8">
+                        <div class="glass-card p-4 md:p-6 bg-green-500/10 border border-green-500/20 rounded-2xl">
+                            <h4 class="text-lg md:text-xl font-bold mb-4 md:mb-6 text-green-400">Strengths</h4>
+                            <div class="space-y-3 md:space-y-4 text-white/80">
+                                <div>
+                                    <h5 class="font-semibold text-green-300 mb-2">Cross-Platform Integration</h5>
+                                    <p class="text-sm">With Instagram, you can post photos and videos across multiple platforms easily.</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-green-300 mb-2">Innovation Pioneer</h5>
+                                    <p class="text-sm">As one of the first social media platforms dedicated exclusively to photos & videos, it is a great example of innovation in social media.</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-green-300 mb-2">Massive User Base</h5>
+                                    <p class="text-sm">The number of registered users on Instagram exceeds a billion.</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-green-300 mb-2">Facebook Partnership</h5>
+                                    <p class="text-sm">With Facebook as its parent company, Instagram can leverage its strengths. Its affiliation with Facebook has provided it with a strong talent pool, allowing it to continue growing.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4 md:space-y-6">
+                            <div class="glass-card p-4 md:p-6 bg-red-500/10 border border-red-500/20 rounded-2xl">
+                                <h4 class="text-lg md:text-xl font-bold mb-4 md:mb-6 text-red-400">Weaknesses</h4>
+                                <div class="space-y-3 md:space-y-4 text-white/80">
+                                    <div>
+                                        <h5 class="font-semibold text-red-300 mb-2">Privacy Concerns</h5>
+                                        <p class="text-sm">Certain Instagram users have raised concerns about privacy and data leaks.</p>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-red-300 mb-2">Market Share Growth</h5>
+                                        <p class="text-sm">Limited market share growth due to many similar social media platforms e.g TikTok.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                                <div class="glass-card p-3 md:p-4 bg-blue-500/10 border border-blue-500/20 rounded-xl">
+                                    <h5 class="font-semibold text-blue-400 mb-2 text-sm">Opportunities</h5>
+                                    <ul class="text-xs text-white/70 space-y-1">
+                                        <li>• Increase in smartphone users and internet usage</li>
+                                        <li>• Rapid technical advancement might aid in brand expansion</li>
+                                        <li>• More marketing and promotion can raise consumer awareness</li>
+                                    </ul>
+                                </div>
+                                <div class="glass-card p-3 md:p-4 bg-orange-500/10 border border-orange-500/20 rounded-xl">
+                                    <h5 class="font-semibold text-orange-400 mb-2 text-sm">Threats</h5>
+                                    <ul class="text-xs text-white/70 space-y-1">
+                                        <li>• Innovation is essential to keep users interested</li>
+                                        <li>• Intense competition can erode user engagement of Instagram</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- User Research -->
+            <section class="mb-16" data-aos="fade-up" data-aos-delay="700">
+                <h2 class="text-4xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    User Research
+                </h2>
+                
+                <!-- Understanding User Needs - Separate Container -->
+                <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl mb-8">
+                    <h3 class="text-2xl font-bold mb-6 text-neon-teal">Understanding User Needs</h3>
+                    <p class="text-lg text-white/80 leading-relaxed">
+                        To better understand the pain points of users of social media apps, we collected over 70 user surveys on the current social media apps that were already functional. We gathered all the information and synthesized several root problems and potential solutions through product mapping and user journeys.
+                    </p>
+                </div>
+                
+                <!-- Personas - Image Left, Content Right -->
+                <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl mb-8">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="flex justify-center">
+                            <img src="../src/images/poosch/poosch-personas.jpg" alt="Poosch User Personas" class="w-full max-w-lg rounded-2xl">
+                        </div>
+                        <div>
+                            <div>
+                                <h4 class="text-3xl font-bold mb-3 text-purple-400">Personas</h4>
+                                <p class="text-white/80">
+                                    Using the statistics and data gleaned from user interviews and surveys, I created two personas that represented the target users. For example, Chloe is a representative of many young girls who is attempting to make it as influencers and use various social media apps to propel themselves to the spotlight. These personas were referred to throughout the entire app development process.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Proposed Solutions -->
+            <section class="mb-16" data-aos="fade-up" data-aos-delay="800">
+                <h2 class="text-4xl font-bold mb-8 bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
+                    Proposed Solutions
+                </h2>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="glass-card p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                        <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-purple-400">Challenge Money Pool</h3>
+                        <p class="text-white/80 text-sm">
+                            Creating a money pool where different challengers can participate by placing a bet/bid on their respective visual-content entry with any amount of Poosch coins. Winners take a percentage of the lump sum based on their bet amount.
+                        </p>
+                    </div>
+                    
+                    <div class="glass-card p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                        <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-orange-500 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-pink-400">Give Away (Donations)</h3>
+                        <p class="text-white/80 text-sm">
+                            Creating a Poosch-coin feature where loyal fans can support their content-creators through donations. These coins are automatically converted into real cash rewards through the app's e-wallet feature. 50 Poosch coins = $2.
+                        </p>
+                    </div>
+                    
+                    <div class="glass-card p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                        <div class="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-emerald-400">E-Wallet System</h3>
+                        <p class="text-white/80 text-sm">
+                            E-Wallet payment adds efficiency to the transaction process by eliminating the need for users to collect and process payments outside the app. Maximum security and transparency guaranteed.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Wireframes -->
+            <section class="mb-16" data-aos="fade-up" data-aos-delay="850">
+                <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h2 class="text-3xl font-bold mb-6 bg-gradient-to-r from-neon-teal to-purple-400 bg-clip-text text-transparent">
+                                Wireframes
+                            </h2>
+                            <p class="text-lg text-white/80 leading-relaxed mb-6">
+                                During the ideation process of the design I created low-fidelity wireframes for testing purposes using Adobe XD. These wireframes helped establish the basic structure and user flow before moving to high-fidelity designs.
+                            </p>
+                            <p class="text-lg text-white/80 leading-relaxed">
+                                The wireframes focused on the core functionalities: challenge creation, user interaction, and the reward system interface.
+                            </p>
+                        </div>
+                        <div class="flex justify-center">
+                            <img src="../src/images/poosch/poosch-wireframe.png" alt="Poosch App Wireframes" class="w-full max-w-md rounded-2xl">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- UML Diagram -->
+            <section class="mb-16" data-aos="fade-up" data-aos-delay="875">
+                <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="flex justify-center">
+                            <img src="../src/images/poosch/poosch-app-uml.png" alt="Poosch App UML Diagram" class="w-full max-w-lg rounded-2xl">
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                                Payment Use-Case Diagram
+                            </h2>
+                            <p class="text-lg text-white/80 leading-relaxed mb-6">
+                                This UML diagram further buttresses the sitemap of the payment system, showing the relationships between users, the e-wallet system, and the various payment flows.
+                            </p>
+                            <p class="text-lg text-white/80 leading-relaxed">
+                                The diagram illustrates how users interact with the Poosch coin system, challenge payments, and donation mechanisms within the app architecture.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Learnings -->
+            <section class="mb-16" data-aos="fade-up" data-aos-delay="900">
+                <h2 class="text-4xl font-bold mb-8 bg-gradient-to-r from-neon-teal to-purple-400 bg-clip-text text-transparent">
+                    Key Learnings
+                </h2>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="glass-card p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                        <h3 class="text-xl font-bold mb-4 text-neon-teal">User Research Power</h3>
+                        <p class="text-white/80">
+                            Never under-estimate the power of user and market research. This helps during feature prioritization.
+                        </p>
+                    </div>
+                    
+                    <div class="glass-card p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                        <h3 class="text-xl font-bold mb-4 text-purple-400">Iteration is Key</h3>
+                        <p class="text-white/80">
+                            Iterate as much as possible. Remember the product is for the end-user and not your personal project.
+                        </p>
+                    </div>
+                    
+                    <div class="glass-card p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                        <h3 class="text-xl font-bold mb-4 text-pink-400">Embrace Feedback</h3>
+                        <p class="text-white/80">
+                            Embrace feedback as it helps to improve the product and create better user experiences.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final Design Showcase -->
+            <section class="mb-16" data-aos="fade-up" data-aos-delay="950">
+                <h2 class="text-4xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    Final Design Showcase
+                </h2>
+                
+                
+
+                <!-- Phone Screens Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6" data-aos="fade-up" data-aos-delay="1025">
+                    <div class="glass-card p-4 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <img src="../src/images/poosch/poosch-phone-screen1.png" alt="Poosch Onboarding Screen" class="w-full rounded-xl mb-3">
+                        <h4 class="text-sm font-semibold mb-2 text-purple-400">Onboarding</h4>
+                        <p class="text-xs text-white/70">Challenge discovery</p>
+                    </div>
+                    
+                    <div class="glass-card p-4 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <img src="../src/images/poosch/poosch-phone-screen2.png" alt="Poosch Home Feed" class="w-full rounded-xl mb-3">
+                        <h4 class="text-sm font-semibold mb-2 text-pink-400">Login Page</h4>
+                        <p class="text-xs text-white/70">Welcome and user setup</p>
+                    </div>
+                    
+                    <div class="glass-card p-4 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <img src="../src/images/poosch/poosch-phone-screen3.png" alt="Poosch Challenge Creation" class="w-full rounded-xl mb-3">
+                        <h4 class="text-sm font-semibold mb-2 text-neon-teal">Create Challenge</h4>
+                        <p class="text-xs text-white/70">Challenge setup</p>
+                    </div>
+                    
+                    <div class="glass-card p-4 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <img src="../src/images/poosch/poosch-phone-screen4.png" alt="Poosch Profile Management" class="w-full rounded-xl mb-3">
+                        <h4 class="text-sm font-semibold mb-2 text-green-400">Profile</h4>
+                        <p class="text-xs text-white/70">User management</p>
+                    </div>
+                    
+                    <div class="glass-card p-4 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <img src="../src/images/poosch/poosch-phone-screen5.png" alt="Poosch E-Wallet Interface" class="w-full rounded-xl mb-3">
+                        <h4 class="text-sm font-semibold mb-2 text-emerald-400">E-Wallet</h4>
+                        <p class="text-xs text-white/70">Payment system</p>
+                    </div>
+                    
+                    <div class="glass-card p-4 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <img src="../src/images/poosch/poosch-phone-screen6.png" alt="Poosch Challenge Participation" class="w-full rounded-xl mb-3">
+                        <h4 class="text-sm font-semibold mb-2 text-orange-400">Participate</h4>
+                        <p class="text-xs text-white/70">Join challenges</p>
+                    </div>
+                    
+                    <div class="glass-card p-4 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <img src="../src/images/poosch/poosch-phone-screen7.png" alt="Poosch Rewards System" class="w-full rounded-xl mb-3">
+                        <h4 class="text-sm font-semibold mb-2 text-yellow-400">Features</h4>
+                        <p class="text-xs text-white/70">Styling</p>
+                    </div>
+                    
+                    <div class="glass-card p-4 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <img src="../src/images/poosch/poosch-phone-screen8.png" alt="Poosch Social Features" class="w-full rounded-xl mb-3">
+                        <h4 class="text-sm font-semibold mb-2 text-blue-400">Social</h4>
+                        <p class="text-xs text-white/70">Community features</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Navigation -->
+            <section class="text-center" data-aos="fade-up" data-aos-delay="1050">
+                <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                    <h3 class="text-2xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                        Explore More Projects
+                    </h3>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="../projects.html" class="cta-btn group relative overflow-hidden bg-gradient-to-r from-purple-500 to-pink-500 p-[2px] rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25">
+                            <span class="block bg-dark rounded-full px-8 py-4 text-lg font-semibold group-hover:bg-transparent transition-colors duration-300">
+                                All Projects
+                            </span>
+                        </a>
+                        <a href="../contact.html" class="cta-btn-secondary group relative overflow-hidden border-2 border-white/20 rounded-full px-8 py-4 text-lg font-semibold backdrop-blur-sm bg-glass hover:bg-glass-hover hover:border-purple-500/50 transition-all duration-300 hover:scale-105">
+                            <span class="relative z-10">Get in Touch</span>
+                            <div class="absolute inset-0 bg-gradient-to-r from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/20 group-hover:to-pink-500/20 transition-all duration-300"></div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/10 backdrop-blur-sm bg-glass">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-white/60">
+                © 2025 Olaide Ilesanmi. Crafted with passion and purpose.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../src/js/script.js"></script>
+</body>
+</html>

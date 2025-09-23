@@ -681,7 +681,7 @@ function shareToTwitter() {
     window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
 }
 
-function copyProjectLink() {
+function copyProjectLink() {D
     const url = window.location.href;
     
     // Use the modern Clipboard API if available
