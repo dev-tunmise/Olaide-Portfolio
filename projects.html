@@ -132,24 +132,28 @@
             <div class="grid lg:grid-cols-2 gap-8 mb-16">
                 <!-- Project 1 -->
                 <div class="project-card group" data-aos="fade-up" data-aos-delay="100" data-categories="web">
-                    <div class="glass-card backdrop-blur-xl bg-glass border border-white/10 rounded-3xl overflow-hidden hover:bg-glass-hover hover:border-neon-teal/30 transition-all duration-500 hover:scale-[1.02]">
-                        <div class="aspect-video overflow-hidden bg-gradient-to-br from-neon-teal/20 to-neon-purple/20 relative">
-                            <img src="./src/images/CineMax/CineMax-main.jpg" alt="FinanceFlow - Financial Dashboard Design" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                            <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                <span class="px-3 py-1 bg-neon-teal/20 text-neon-teal rounded-full text-sm backdrop-blur-sm">Featured Project</span>
+                    <div class="glass-card backdrop-blur-xl bg-glass border border-white/10 rounded-3xl overflow-hidden hover:bg-glass-hover hover:border-neon-teal/30 transition-all duration-500 hover:scale-[1.02] cursor-pointer">
+                        <a href="projects/cinemax.html" class="block">
+                            <div class="aspect-video overflow-hidden bg-gradient-to-br from-neon-teal/20 to-neon-purple/20 relative">
+                                <img src="./src/images/CineMax/CineMax-main.jpg" alt="FinanceFlow - Financial Dashboard Design" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                    <span class="px-3 py-1 bg-neon-teal/20 text-neon-teal rounded-full text-sm backdrop-blur-sm">Featured Project</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="p-8">
-                            <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-neon-teal transition-colors">CineMax</h3>
-                            <p class="text-white/70 mb-6 group-hover:text-white/90 transition-colors">
-                               Cinemax is a movie theater ticket booking app that allows users to easily book movie tickets and also share those tickets with friends.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-3 py-1 bg-neon-teal/20 text-neon-teal rounded-full text-sm">Easy Booking</span>
-                                <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm">Share Tickets</span>
-                                <span class="px-3 py-1 bg-pink-500/20 text-pink-400 rounded-full text-sm">Accessibility</span>
+                            <div class="p-8">
+                                <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-neon-teal transition-colors">CineMax</h3>
+                                <p class="text-white/70 mb-6 group-hover:text-white/90 transition-colors">
+                                   Cinemax is a movie theater ticket booking app that allows users to easily book movie tickets and also share those tickets with friends.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="px-3 py-1 bg-neon-teal/20 text-neon-teal rounded-full text-sm">Easy Booking</span>
+                                    <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm">Share Tickets</span>
+                                    <span class="px-3 py-1 bg-pink-500/20 text-pink-400 rounded-full text-sm">Accessibility</span>
+                                </div>
                             </div>
+                        </a>
+                        <div class="px-8 pb-8">
                             <div class="flex items-center justify-between">
                                 <a href="projects/cinemax.html" class="inline-flex items-center text-white hover:text-neon-teal transition-colors group-hover:translate-x-2 transform duration-300">
                                     View Case Study
@@ -158,8 +162,7 @@
                                     </svg>
                                 </a>
                                 <div class="flex space-x-2">
-                                    
-                                    <button onclick="sharePage()" class="w-10 h-10 bg-glass hover:bg-glass-hover border border-white/20 rounded-full flex items-center justify-center transition-all duration-300">
+                                    <button onclick="sharePage(); event.stopPropagation();" class="w-10 h-10 bg-glass hover:bg-glass-hover border border-white/20 rounded-full flex items-center justify-center transition-all duration-300">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path>
                                         </svg>
@@ -172,24 +175,28 @@
                 
                 <!-- Project 2 -->
                 <div class="project-card group" data-aos="fade-up" data-aos-delay="200" data-categories="mobile">
-                    <div class="glass-card backdrop-blur-xl bg-glass border border-white/10 rounded-3xl overflow-hidden hover:bg-glass-hover hover:border-neon-purple/30 transition-all duration-500 hover:scale-[1.02]">
-                        <div class="aspect-video overflow-hidden bg-gradient-to-br from-neon-purple/20 to-pink-500/20 relative">
-                            <img src="./src/images/Poosch/poosch.jpg" alt="EcoTrack - Sustainability App Design" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                            <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm backdrop-blur-sm">Award Winner</span>
+                    <div class="glass-card backdrop-blur-xl bg-glass border border-white/10 rounded-3xl overflow-hidden hover:bg-glass-hover hover:border-neon-purple/30 transition-all duration-500 hover:scale-[1.02] cursor-pointer">
+                        <a href="./projects/poosch.html" class="block">
+                            <div class="aspect-video overflow-hidden bg-gradient-to-br from-neon-purple/20 to-pink-500/20 relative">
+                                <img src="./src/images/Poosch/poosch.jpg" alt="Poosh - Visual Challenge Social Networking App" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                    <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm backdrop-blur-sm">Award Winner</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="p-8">
-                            <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-neon-purple transition-colors">Poosch App</h3>
-                            <p class="text-white/70 mb-6 group-hover:text-white/90 transition-colors">
-                                Poosch is an all-new visual-challenge social networking app that offers users the ideal opportunity to showcase their talents and make friends, altogether while generating income either via winning cash rewards through challenges or by donations made through giveaways from loyal fans.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm">Showcase Talent</span>
-                                <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm">Social Networking app</span>
-                                <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Earn Rewards</span>
+                            <div class="p-8">
+                                <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-neon-purple transition-colors">Poosh App</h3>
+                                <p class="text-white/70 mb-6 group-hover:text-white/90 transition-colors">
+                                    Poosh is an all-new visual-challenge social networking app that offers users the ideal opportunity to showcase their talents and make friends, altogether while generating income either via winning cash rewards through challenges or by donations made through giveaways from loyal fans.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm">Showcase Talent</span>
+                                    <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm">Social Networking app</span>
+                                    <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Earn Rewards</span>
+                                </div>
                             </div>
+                        </a>
+                        <div class="px-8 pb-8">
                             <div class="flex items-center justify-between">
                                 <a href="./projects/poosch.html" class="inline-flex items-center text-white hover:text-neon-purple transition-colors group-hover:translate-x-2 transform duration-300">
                                     View Case Study
@@ -198,8 +205,7 @@
                                     </svg>
                                 </a>
                                 <div class="flex space-x-2">
-                                    
-                                    <button onclick="sharePage()" class="w-10 h-10 bg-glass hover:bg-glass-hover border border-white/20 rounded-full flex items-center justify-center transition-all duration-300">
+                                    <button onclick="sharePage(); event.stopPropagation();" class="w-10 h-10 bg-glass hover:bg-glass-hover border border-white/20 rounded-full flex items-center justify-center transition-all duration-300">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path>
                                         </svg>
@@ -212,34 +218,37 @@
                 
                 <!-- Project 3 -->
                 <div class="project-card group" data-aos="fade-up" data-aos-delay="300" data-categories="web">
-                    <div class="glass-card backdrop-blur-xl bg-glass border border-white/10 rounded-3xl overflow-hidden hover:bg-glass-hover hover:border-pink-400/30 transition-all duration-500 hover:scale-[1.02]">
-                        <div class="aspect-video overflow-hidden bg-gradient-to-br from-pink-500/20 to-orange-500/20 relative">
-                            <img src="./src/images/study mate.jpg" alt="MindSpace - Mental Health Platform Design" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                            <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                <span class="px-3 py-1 bg-pink-400/20 text-pink-400 rounded-full text-sm backdrop-blur-sm">Healthcare</span>
+                    <div class="glass-card backdrop-blur-xl bg-glass border border-white/10 rounded-3xl overflow-hidden hover:bg-glass-hover hover:border-pink-400/30 transition-all duration-500 hover:scale-[1.02] cursor-pointer">
+                        <a href="./projects/studymate.html" class="block">
+                            <div class="aspect-video overflow-hidden bg-gradient-to-br from-pink-500/20 to-orange-500/20 relative">
+                                <img src="./src/images/study mate.jpg" alt="Study Mate - Productivity & Environmental Impact App" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                    <span class="px-3 py-1 bg-pink-400/20 text-pink-400 rounded-full text-sm backdrop-blur-sm">Productivity</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="p-8">
-                            <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-pink-400 transition-colors">Study Mate</h3>
-                            <p class="text-white/70 mb-6 group-hover:text-white/90 transition-colors">
-                                Conducting interviews, paper, and digital wireframing, creating Information Architecture, low and high-fidelity prototyping, conducting usability studies, accounting for accessibility, and iterating on designs.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-3 py-1 bg-pink-500/20 text-pink-400 rounded-full text-sm">Boost Productivity</span>
-                                <span class="px-3 py-1 bg-neon-teal/20 text-neon-teal rounded-full text-sm">Go Green</span>
-                                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Smarter Study</span>
+                            <div class="p-8">
+                                <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-pink-400 transition-colors">Study Mate</h3>
+                                <p class="text-white/70 mb-6 group-hover:text-white/90 transition-colors">
+                                    Build a study app that motivates users to stay on track and be more productive by keeping them accountable for their goals while contributing to combating climate change.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="px-3 py-1 bg-pink-500/20 text-pink-400 rounded-full text-sm">Boost Productivity</span>
+                                    <span class="px-3 py-1 bg-neon-teal/20 text-neon-teal rounded-full text-sm">Go Green</span>
+                                    <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Study Partners</span>
+                                </div>
                             </div>
+                        </a>
+                        <div class="px-8 pb-8">
                             <div class="flex items-center justify-between">
-                                <button class="inline-flex items-center text-white hover:text-pink-400 transition-colors group-hover:translate-x-2 transform duration-300">
+                                <a href="./projects/studymate.html" class="inline-flex items-center text-white hover:text-pink-400 transition-colors group-hover:translate-x-2 transform duration-300">
                                     View Case Study
                                     <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                                     </svg>
-                                </button>
+                                </a>
                                 <div class="flex space-x-2">
-                                   
-                                    <button onclick="sharePage()" class="w-10 h-10 bg-glass hover:bg-glass-hover border border-white/20 rounded-full flex items-center justify-center transition-all duration-300">
+                                    <button onclick="sharePage(); event.stopPropagation();" class="w-10 h-10 bg-glass hover:bg-glass-hover border border-white/20 rounded-full flex items-center justify-center transition-all duration-300">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path>
                                         </svg>

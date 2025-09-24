@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Mate Case Study - Olaide Ilesanmi</title>
+    <meta name="description" content="Study Mate - Build a study app that motivates users to stay on track and be more productive by keeping them accountable for their goals.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark': '#0F172A',
+                        'neon-teal': '#14B8A6',
+                        'neon-purple': '#8B5CF6',
+                        'glass': 'rgba(255, 255, 255, 0.1)',
+                        'glass-hover': 'rgba(255, 255, 255, 0.2)',
+                    },
+                    fontFamily: {
+                        'futura': ['Futura', 'Arial', 'sans-serif'],
+                        'space': ['Space Grotesk', 'system-ui', 'sans-serif'],
+                    },
+                    backdropBlur: {
+                        'xs': '2px',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'tilt': 'tilt 10s linear infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../src/css/style.css">
+</head>
+<body class="bg-dark text-white font-space overflow-x-hidden">
+    
+    <!-- Background Elements -->
+    <div id="bg-canvas" class="fixed inset-0 -z-10"></div>
+    <div class="fixed inset-0 -z-10 bg-gradient-to-br from-neon-purple/20 via-dark to-neon-teal/20"></div>
+    
+    <!-- Floating Shapes -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div class="floating-shape absolute w-32 h-32 bg-gradient-to-r from-neon-teal/30 to-neon-purple/30 rounded-full blur-xl animate-float" style="top: 20%; left: 10%;"></div>
+        <div class="floating-shape absolute w-24 h-24 bg-gradient-to-r from-neon-purple/40 to-pink-500/40 rounded-full blur-lg animate-float" style="top: 60%; right: 15%; animation-delay: -2s;"></div>
+        <div class="floating-shape absolute w-40 h-40 bg-gradient-to-r from-blue-500/20 to-neon-teal/30 rounded-full blur-2xl animate-float" style="top: 80%; left: 70%; animation-delay: -4s;"></div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-glass border-b border-white/10" role="navigation">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold bg-gradient-to-r from-neon-teal to-neon-purple bg-clip-text text-transparent">
+                    <a href="../index.html">Olaide</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="../index.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Home">Home</a>
+                    <a href="../about.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="About">About</a>
+                    <a href="../skills.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Skills">Skills</a>
+                    <a href="../projects.html" class="nav-link text-neon-teal hover:text-neon-teal transition-colors duration-300" aria-label="Projects">Projects</a>
+                    <a href="../contact.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Contact">Contact</a>
+                </div>
+                <button class="md:hidden text-white hover:text-neon-teal transition-colors" id="mobile-menu-btn" aria-label="Toggle mobile menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-dark/95 backdrop-blur-lg hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-xl">
+            <a href="../index.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">Home</a>
+            <a href="../about.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">About</a>
+            <a href="../skills.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">Skills</a>
+            <a href="../projects.html" class="mobile-nav-link text-neon-teal hover:text-neon-teal transition-colors duration-300">Projects</a>
+            <a href="../contact.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">Contact</a>
+        </div>
+    </div>
+
+    <!-- Case Study Content -->
+    <main class="pt-32 pb-20">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <!-- Header Section -->
+            <div class="mb-16" data-aos="fade-up">
+                <div class="flex items-center gap-4 mb-6">
+                    <a href="../projects.html" class="flex items-center gap-2 text-white/70 hover:text-neon-teal transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        Back to Projects
+                    </a>
+                </div>
+                
+                <div class="flex items-center gap-6 mb-6">
+                    <img class="w-16 h-16 rounded-2xl" src="../src/images/Studymate/Study-mate-logo.jpg" alt="">
+                    
+                    <h1 class="text-5xl md:text-7xl font-bold">
+                        <span class="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+                            Study Mate
+                        </span>
+                    </h1>
+                </div>
+                
+                <p class="text-xl text-white/80 mb-8 leading-relaxed max-w-4xl">
+                    Through Live Study Rooms and connecting with Study Partners, StudyMate helps users crush their personal goals and also contributes to combating climate change by planting a tree for each goal accomplished. Users eventually earn a sustainability certificate or badge.
+                </p>
+                
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <span class="px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-full border border-emerald-500/30">Productivity</span>
+                    <span class="px-4 py-2 bg-teal-500/20 text-teal-400 rounded-full border border-teal-500/30">Study Partners</span>
+                    <span class="px-4 py-2 bg-green-500/20 text-green-400 rounded-full border border-green-500/30">Sustainability</span>
+                </div>
+                
+                <div class="grid grid-cols-3 gap-4 md:gap-8">
+                    <div class="glass-card p-4 md:p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <h3 class="text-sm md:text-lg font-semibold mb-2 text-blue-400">Role</h3>
+                        <p class="text-xs md:text-base text-white/70">UX Designer</p>
+                    </div>
+                    <div class="glass-card p-4 md:p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <h3 class="text-sm md:text-lg font-semibold mb-2 text-blue-500">Platform</h3>
+                        <p class="text-xs md:text-base text-white/70">Mobile App</p>
+                    </div>
+                    <div class="glass-card p-4 md:p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <h3 class="text-sm md:text-lg font-semibold mb-2 text-blue-600">Type</h3>
+                        <p class="text-xs md:text-base text-white/70">Productivity</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Responsibilities -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="200">
+                <div class="glass-card p-8 md:p-12 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+                        Core Responsibilities
+                    </h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-3">
+                                    <div class="w-2 h-2 bg-blue-400 rounded-full mt-3 flex-shrink-0"></div>
+                                    <span class="text-white/80">Conducting interviews</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <div class="w-2 h-2 bg-blue-400 rounded-full mt-3 flex-shrink-0"></div>
+                                    <span class="text-white/80">Paper and digital wireframing</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <div class="w-2 h-2 bg-blue-400 rounded-full mt-3 flex-shrink-0"></div>
+                                    <span class="text-white/80">Creating Information Architecture</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <div class="w-2 h-2 bg-blue-400 rounded-full mt-3 flex-shrink-0"></div>
+                                    <span class="text-white/80">Low and high-fidelity prototyping</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-3">
+                                    <div class="w-2 h-2 bg-blue-500 rounded-full mt-3 flex-shrink-0"></div>
+                                    <span class="text-white/80">Conducting usability studies</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <div class="w-2 h-2 bg-teal-400 rounded-full mt-3 flex-shrink-0"></div>
+                                    <span class="text-white/80">Accounting for accessibility</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <div class="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
+                                    <span class="text-white/80">Iterating on designs</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Problem Statement & Overview -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="300">
+                <div class=" gap-12 items-center mb-16">
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                            <span class="text-white">Problem </span>
+                            <span class="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Statement</span>
+                        </h2>
+                        <p class="text-xl text-white/80 mb-8 leading-relaxed">
+                            When compared with academic goals, most students fail to achieve their personal goals. The vast majority of people procrastinate and finish their tasks at the last minute.
+                        </p>
+                        </div>
+                        <div class="glass-card p-6 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl flex flex-col justify-center">
+                            <h3 class="text-lg font-semibold mb-3 text-blue-400">Goal</h3>
+                            <p class="text-white/80">
+                                Build a study app that motivates users to stay on track and be more productive by keeping them accountable for their goals.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Overview -->
+                <div class="glass-card p-8 md:p-12 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl" data-aos="fade-up" data-aos-delay="400">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+                        Project Overview
+                    </h2>
+                    <p class="text-xl text-white/80 leading-relaxed mb-8">
+                        Through Live Study Rooms and connecting with Study Partners, StudyMate helps users crush their personal goals and also contributes to combating climate change by planting a tree for each goal accomplished. Users eventually earn a sustainability certificate or badge.
+                    </p>
+                    
+                    <!-- Key Features Grid -->
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="glass-card p-6 backdrop-blur-xl bg-glass border border-emerald-500/20 rounded-2xl">
+                            <div class="w-12 h-12 bg-emerald-500/20 rounded-xl flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2 text-emerald-400">Live Study Rooms</h3>
+                            <p class="text-white/70 text-sm">Real-time collaborative study sessions</p>
+                        </div>
+
+                        <div class="glass-card p-6 backdrop-blur-xl bg-glass border border-teal-500/20 rounded-2xl">
+                            <div class="w-12 h-12 bg-teal-500/20 rounded-xl flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-1a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2 text-teal-400">Study Partners</h3>
+                            <p class="text-white/70 text-sm">Connect with accountability partners</p>
+                        </div>
+
+                        <div class="glass-card p-6 backdrop-blur-xl bg-glass border border-green-500/20 rounded-2xl">
+                            <div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.636 18.364a9 9 0 010-12.728m12.728 0a9 9 0 010 12.728m-9.9-2.829a5 5 0 010-7.07m7.072 0a5 5 0 010 7.07M13 12a1 1 0 11-2 0 1 1 0 012 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2 text-green-400">Sustainability Impact</h3>
+                            <p class="text-white/70 text-sm">Plant trees for completed goals</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Understanding the User -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="400">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
+                    <span class="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Understanding </span>
+                    <span class="text-white">the User</span>
+                </h2>
+                
+                <div class="mb-12">
+                    <p class="text-xl text-white/80 leading-relaxed text-center max-w-4xl mx-auto">
+                        I discovered that many target users frequently struggle to complete their personal tasks or assignment at a reasonable hour; the vast majority of target users procrastinate and complete their tasks at the last minute. A higher power is always required to hold them accountable for their goals.
+                    </p>
+                </div>
+
+                <!-- Pain Points -->
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl hover:border-red-400/30 transition-all duration-500">
+                        <div class="w-16 h-16 bg-red-500/20 rounded-2xl flex items-center justify-center mb-6">
+                            <span class="text-2xl font-bold text-red-400">01</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-red-400">Pain Point 1</h3>
+                        <p class="text-white/70 leading-relaxed">
+                            Users are unable to stay motivated and committed to personal goals. Most target users start off strong in setting goals, but quickly lose motivation and momentum.
+                        </p>
+                    </div>
+
+                    <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl hover:border-orange-400/30 transition-all duration-500">
+                        <div class="w-16 h-16 bg-orange-500/20 rounded-2xl flex items-center justify-center mb-6">
+                            <span class="text-2xl font-bold text-orange-400">02</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-orange-400">Pain Point 2</h3>
+                        <p class="text-white/70 leading-relaxed">
+                            Platforms for productivity are frequently lacking in options for increasing accountability.
+                        </p>
+                    </div>
+
+                    <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl hover:border-yellow-400/30 transition-all duration-500">
+                        <div class="w-16 h-16 bg-yellow-500/20 rounded-2xl flex items-center justify-center mb-6">
+                            <span class="text-2xl font-bold text-yellow-400">03</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-yellow-400">Pain Point 3</h3>
+                        <p class="text-white/70 leading-relaxed">
+                            In situations where customers reserve a large number of tickets, platforms rarely offer the option of distributing the tickets to the appropriate owners.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Personas -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="425">
+                    
+                    <div class="flex justify-center">
+                        <img src="../src/images/StudyMate/Study-mate-personas.png" alt="Study Mate User Personas" 
+                             class="w-[80%] h-auto">
+                    </div>
+            </section>
+
+            <!-- Big Image 1 -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="450">
+                <div class="flex justify-center">
+                    <img src="../src/images/StudyMate/Study-mate-big-image1.png" alt="Study Mate Research Insights" 
+                         class="w-full max-w-5xl h-auto">
+                </div>
+            </section>
+
+            
+
+            <!-- Starting the Design -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="600">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
+                    <span class="text-white">Starting the </span>
+                    <span class="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Design</span>
+                </h2>
+
+                <!-- Paper Wireframes -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                    <div>
+                        <img src="../src/images/StudyMate/Study-mate-paper-wireframe.png" alt="Study Mate Paper Wireframe" 
+                             class="w-full h-auto">
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold mb-6 text-blue-400">Paper Wireframe</h3>
+                        <p class="text-xl text-white/80 mb-6 leading-relaxed">
+                            Taking the time to draft iterations of each screen ensured that the elements that made it to digital wireframes would address user pain points.
+                        </p>
+                        <p class="text-xl text-white/80 leading-relaxed">
+                            I made sure to include a status feed page: By adding a feed page where users can post, like, and comment, they will be motivated to reach their goals. A user's desire to reach their goals is often sparked by seeing others achieve them.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Digital Wireframes -->
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-6 text-blue-500">Digital Wireframe</h3>
+                        <p class="text-xl text-white/80 leading-relaxed">
+                            Throughout the initial design phase, I made sure to base screen design on feedback and user research findings.
+                        </p>
+                    </div>
+                    <div>
+                        <img src="../src/images/StudyMate/Study-mate-digital-wireframe.png" alt="Study Mate Digital Wireframe" 
+                             class="w-full h-auto">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Big Image 2 -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="650">
+                <div class="flex justify-center">
+                    <img src="../src/images/StudyMate/Study-mate-big-image-2.png" alt="Study Mate Design Process" 
+                         class="w-full max-w-5xl h-auto">
+                </div>
+            </section>
+
+            <!-- Usability Testing -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="700">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
+                    <span class="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Usability </span>
+                    <span class="text-white">Testing</span>
+                </h2>
+                
+                <div class="mb-12">
+                    <p class="text-xl text-white/80 leading-relaxed text-center max-w-4xl mx-auto">
+                        I created a fully-functional, high-fidelity prototype of the new flows using FIGMA. At the same time, I started recruiting subjects for the test who fit our criteria.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                    <div>
+                        <img src="../src/images/StudyMate/Study-mate-usability-testing.png" alt="Study Mate Usability Testing" 
+                             class="w-full h-auto">
+                    </div>
+                    <div>
+                        <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl mb-8">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center mr-4">
+                                    <span class="text-red-400 font-bold">01</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-red-400">Issue 01</h3>
+                            </div>
+                            <p class="text-white/80 leading-relaxed">
+                                Users need better cues for switching between feed and study rooms
+                            </p>
+                        </div>
+
+                        <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-emerald-500/20 rounded-xl flex items-center justify-center mr-4">
+                                    <span class="text-emerald-400 font-bold">01</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-emerald-400">Solution 01</h3>
+                            </div>
+                            <p class="text-white/80 leading-relaxed">
+                                Following usability tests, I revised the design to include a Feed page and Top nav buttons where users can switch between the Study room and the Trending feed page.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- Big Image 3 -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="750">
+                <div class="flex justify-center">
+                    <img src="../src/images/StudyMate/Study-mate-big-image-3.png" alt="Study Mate Testing Results" 
+                         class="w-full max-w-5xl h-auto">
+                </div>
+            </section>
+
+            <!-- UI Design -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="800">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
+                    <span class="text-white">UI </span>
+                    <span class="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Design</span>
+                </h2>
+                
+                <div class="mb-16">
+                    <p class="text-xl text-white/80 leading-relaxed text-center max-w-4xl mx-auto">
+                        Once the usability issues were resolved, I moved on to design the final screens in Figma. My goal was to create a visual identity that's aligned with the brand's values.
+                    </p>
+                </div>
+
+                <!-- Big Image 4 -->
+                <section class="mb-20" data-aos="fade-up" data-aos-delay="810">
+                    <div class="flex justify-center">
+                        <img src="../src/images/StudyMate/study-mate-big-image-4.png" alt="Study Mate UI Design Process" 
+                             class="w-full max-w-5xl h-auto">
+                    </div>
+                </section>
+
+                <!-- Phone Screens Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16" data-aos="fade-up" data-aos-delay="825">
+                    <div class="glass-card p-4 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <img src="../src/images/StudyMate/study-mate-phone-screen-1.png" alt="Study Mate Onboarding Screen" class="w-full rounded-xl">
+                    </div>
+                    
+                    <div class="glass-card p-4 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <img src="../src/images/StudyMate/study-mate-phone-screen-2.png" alt="Study Mate Goal Setting" class="w-full rounded-xl">
+                    </div>
+                    
+                    <div class="glass-card p-4 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <img src="../src/images/StudyMate/study-mate-phone-screen-3.png" alt="Study Mate Study Room" class="w-full rounded-xl">
+                    </div>
+                    
+                    <div class="glass-card p-4 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <img src="../src/images/StudyMate/study-mate-phone-screen-4.png" alt="Study Mate Progress Tracking" class="w-full rounded-xl">
+                    </div>
+                    
+                    <div class="glass-card p-4 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <img src="../src/images/StudyMate/study-mate-phone-screen-5.png" alt="Study Mate Social Feed" class="w-full rounded-xl">
+                    </div>
+                    
+                    <div class="glass-card p-4 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <img src="../src/images/StudyMate/study-mate-phone-screen-6.png" alt="Study Mate Study Partners" class="w-full rounded-xl">
+                    </div>
+                    
+                    <div class="glass-card p-4 backdrop-blur-xl bg-glass border border-white/10 rounded-2xl">
+                        <img src="../src/images/StudyMate/study-mate-phone-screen-7.png" alt="Study Mate Rewards & Trees" class="w-full rounded-xl">
+                    </div>
+                </div>
+
+                <!-- Sustainability Certificate -->
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Sustainability Impact</h3>
+                        <p class="text-xl text-white/80 leading-relaxed">
+                            Users earn sustainability certificates after completing 1000 hours on the platform, reinforcing the environmental mission of planting trees for achieved goals.
+                        </p>
+                    </div>
+                    <div>
+                        <img src="../src/images/StudyMate/Study-mate-sustainability.png" alt="Study Mate Sustainability Impact" 
+                             class="w-full h-auto">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Big Image 5 -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="1000">
+                <div class="flex justify-center">
+                    <img src="../src/images/StudyMate/Study-mate-big-image-5.png" alt="Study Mate Final Design Overview" 
+                         class="w-full max-w-5xl h-auto">
+                </div>
+            </section>
+
+            <!-- Navigation -->
+            <section class="text-center" data-aos="fade-up" data-aos-delay="1050">
+                <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                    <h3 class="text-2xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                        Explore More Projects
+                    </h3>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="../projects.html" class="cta-btn group relative overflow-hidden bg-gradient-to-r from-purple-500 to-pink-500 p-[2px] rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25">
+                            <span class="block bg-dark rounded-full px-8 py-4 text-lg font-semibold group-hover:bg-transparent transition-colors duration-300">
+                                All Projects
+                            </span>
+                        </a>
+                        <a href="../contact.html" class="cta-btn-secondary group relative overflow-hidden border-2 border-white/20 rounded-full px-8 py-4 text-lg font-semibold backdrop-blur-sm bg-glass hover:bg-glass-hover hover:border-purple-500/50 transition-all duration-300 hover:scale-105">
+                            <span class="relative z-10">Get in Touch</span>
+                            <div class="absolute inset-0 bg-gradient-to-r from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/20 group-hover:to-pink-500/20 transition-all duration-300"></div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../src/js/script.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out-cubic',
+            once: true,
+            offset: 100,
+            delay: 0,
+        });
+    </script>
+</body>
+</html>
