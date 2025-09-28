@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merck Case Study - Olaide Ilesanmi</title>
+    <meta name="description" content="Merck - A confidential UX design project showcasing professional design methodology and user-centered solutions.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark': '#0F172A',
+                        'neon-teal': '#14B8A6',
+                        'neon-purple': '#8B5CF6',
+                        'glass': 'rgba(255, 255, 255, 0.1)',
+                        'glass-hover': 'rgba(255, 255, 255, 0.2)',
+                    },
+                    fontFamily: {
+                        'futura': ['Futura', 'Arial', 'sans-serif'],
+                        'space': ['Space Grotesk', 'system-ui', 'sans-serif'],
+                    },
+                    backdropBlur: {
+                        'xs': '2px',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'tilt': 'tilt 10s linear infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../src/css/style.css">
+</head>
+<body class="bg-dark text-white font-space overflow-x-hidden">
+    
+    <!-- Background Elements -->
+    <div id="bg-canvas" class="fixed inset-0 -z-10"></div>
+    <div class="fixed inset-0 -z-10 bg-gradient-to-br from-neon-purple/20 via-dark to-neon-teal/20"></div>
+    
+    <!-- Floating Shapes -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div class="floating-shape absolute w-32 h-32 bg-gradient-to-r from-neon-teal/30 to-neon-purple/30 rounded-full blur-xl animate-float" style="top: 20%; left: 10%;"></div>
+        <div class="floating-shape absolute w-24 h-24 bg-gradient-to-r from-neon-purple/40 to-pink-500/40 rounded-full blur-lg animate-float" style="top: 60%; right: 15%; animation-delay: -2s;"></div>
+        <div class="floating-shape absolute w-40 h-40 bg-gradient-to-r from-blue-500/20 to-neon-teal/30 rounded-full blur-2xl animate-float" style="top: 80%; left: 70%; animation-delay: -4s;"></div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-glass border-b border-white/10" role="navigation">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold bg-gradient-to-r from-neon-teal to-neon-purple bg-clip-text text-transparent">
+                    <a href="../index.html">Olaide</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="../index.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Home">Home</a>
+                    <a href="../about.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="About">About</a>
+                    <a href="../skills.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Skills">Skills</a>
+                    <a href="../projects.html" class="nav-link text-neon-teal hover:text-neon-teal transition-colors duration-300" aria-label="Projects">Projects</a>
+                    <a href="../contact.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Contact">Contact</a>
+                </div>
+                <button class="md:hidden text-white hover:text-neon-teal transition-colors" id="mobile-menu-btn" aria-label="Toggle mobile menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-dark/95 backdrop-blur-lg hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-xl">
+            <a href="../index.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">Home</a>
+            <a href="../about.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">About</a>
+            <a href="../skills.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">Skills</a>
+            <a href="../projects.html" class="mobile-nav-link text-neon-teal hover:text-neon-teal transition-colors duration-300">Projects</a>
+            <a href="../contact.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">Contact</a>
+        </div>
+    </div>
+
+    <!-- Case Study Content -->
+    <main class="pt-32 pb-20">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <!-- Header Section -->
+            <div class="mb-20" data-aos="fade-up">
+                <div class="flex items-center gap-4 mb-8">
+                    <a href="../projects.html" class="flex items-center gap-2 text-white/70 hover:text-neon-teal transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        Back to Projects
+                    </a>
+                </div>
+                
+                <!-- Hero Banner -->
+                <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-500/30 via-indigo-500/20 to-purple-500/30 mb-12">
+                    <!-- Hero Image Background -->
+                    <div class="absolute inset-0">
+                        <img src="../src/images/Merck.jpg" alt="Merck Project Overview" class="w-full h-full object-cover opacity-20">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/40 via-indigo-500/30 to-purple-500/40"></div>
+                    </div>
+                    
+                    <div class="relative z-10 p-8 md:p-12">
+                        <div class="flex flex-col md:flex-row items-start md:items-center gap-8">
+                            <div class="flex-1">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-20 h-20 bg-white/90 backdrop-blur-xl rounded-2xl flex items-center justify-center shadow-2xl border border-white/20">
+                                        <span class="text-3xl font-bold bg-gradient-to-br from-blue-500 to-purple-600 bg-clip-text text-transparent">M</span>
+                                    </div>
+                                    <div>
+                                        <h1 class="text-6xl md:text-8xl font-bold text-white mb-2 drop-shadow-lg">Merck</h1>
+                                        <p class="text-blue-200 text-lg font-medium">Pharmaceutical Solutions</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="text-xl text-white/95 leading-relaxed max-w-3xl mb-6 drop-shadow-sm">
+                                    A confidential UX design project for a leading pharmaceutical company, focusing on user-centered design solutions and digital transformation initiatives.
+                                </p>
+                                
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-full border border-white/30">Pharmaceutical</span>
+                                    <span class="px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-full border border-white/30">Confidential</span>
+                                    <span class="px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-full border border-white/30">Enterprise</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Project Stats -->
+                            <div class="grid grid-cols-1 gap-4 min-w-[280px]">
+                                <div class="bg-white/15 backdrop-blur-xl rounded-2xl p-6 border border-white/30 shadow-lg">
+                                    <h3 class="text-lg font-bold text-blue-200 mb-2">Role</h3>
+                                    <p class="text-white">UX Designer</p>
+                                </div>
+                                <div class="bg-white/15 backdrop-blur-xl rounded-2xl p-6 border border-white/30 shadow-lg">
+                                    <h3 class="text-lg font-bold text-indigo-200 mb-2">Industry</h3>
+                                    <p class="text-white">Pharmaceutical</p>
+                                </div>
+                                <div class="bg-white/15 backdrop-blur-xl rounded-2xl p-6 border border-white/30 shadow-lg">
+                                    <h3 class="text-lg font-bold text-purple-200 mb-2">Project Type</h3>
+                                    <p class="text-white">Confidential</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Enhanced Background decoration -->
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-white/15 to-transparent rounded-full blur-3xl"></div>
+                    <div class="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-blue-400/30 to-transparent rounded-full blur-2xl"></div>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-radial from-indigo-400/20 to-transparent rounded-full blur-3xl"></div>
+                </div>
+            </div>
+
+            <!-- Confidentiality Notice -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="100">
+                <div class="glass-card p-8 md:p-12 backdrop-blur-xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/30 rounded-3xl">
+                    <div class="flex items-start gap-6">
+                        <div class="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-9a2 2 0 00-2-2H6a2 2 0 00-2 2v9a2 2 0 002 2zm10-12V6a2 2 0 00-2-2H8a2 2 0 00-2 2v3h8z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Confidential Project</h2>
+                            <p class="text-xl text-white/80 leading-relaxed">
+                                As the nature of this project is confidential, I won't be able to show any visuals for the time being. However, I can provide details of the work I've done and the methodologies employed in this enterprise-level pharmaceutical project.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Project Overview -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="200">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
+                    <span class="text-white">Project </span>
+                    <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Overview</span>
+                </h2>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Challenge -->
+                    <div class="group relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-indigo-400/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                        <div class="relative glass-card p-8 backdrop-blur-xl bg-gradient-to-br from-blue-500/10 to-transparent border border-blue-500/20 rounded-3xl hover:border-blue-400/40 transition-all duration-500">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                    <i class="fas fa-lightbulb text-blue-400 text-2xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-4 text-blue-400">The Challenge</h3>
+                                <p class="text-white/70 leading-relaxed">
+                                    Working within strict confidentiality parameters while delivering innovative UX solutions for pharmaceutical industry requirements.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Approach -->
+                    <div class="group relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-indigo-400/20 to-purple-400/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                        <div class="relative glass-card p-8 backdrop-blur-xl bg-gradient-to-br from-indigo-500/10 to-transparent border border-indigo-500/20 rounded-3xl hover:border-indigo-400/40 transition-all duration-500">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-indigo-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                    <i class="fas fa-route text-indigo-400 text-2xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-4 text-indigo-400">My Approach</h3>
+                                <p class="text-white/70 leading-relaxed">
+                                    Employed user-centered design methodologies with emphasis on compliance, accessibility, and enterprise-level scalability.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Impact -->
+                    <div class="group relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                        <div class="relative glass-card p-8 backdrop-blur-xl bg-gradient-to-br from-purple-500/10 to-transparent border border-purple-500/20 rounded-3xl hover:border-purple-400/40 transition-all duration-500">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-purple-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                    <i class="fas fa-chart-line text-purple-400 text-2xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-4 text-purple-400">The Impact</h3>
+                                <p class="text-white/70 leading-relaxed">
+                                    Delivered strategic design solutions that enhanced user experience while maintaining regulatory compliance and security standards.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Design Process -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="300">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
+                    <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Design </span>
+                    <span class="text-white">Process</span>
+                </h2>
+                
+                <div class="relative">
+                    <!-- Process Timeline -->
+                    <div class="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-400 via-indigo-400 to-purple-400 rounded-full transform -translate-x-1/2 hidden md:block"></div>
+                    
+                    <div class="space-y-16">
+                        <!-- Research & Discovery -->
+                        <div class="flex flex-col md:flex-row items-center gap-12">
+                            <div class="md:w-1/2 md:pr-8">
+                                <div class="glass-card p-8 backdrop-blur-xl bg-gradient-to-br from-blue-500/10 to-transparent border border-blue-400/30 rounded-3xl relative group hover:border-blue-400/50 transition-all duration-500">
+                                    <div class="absolute top-6 right-6 w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-search text-white text-lg"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold mb-4 text-blue-400">Research & Discovery</h3>
+                                    <p class="text-white/80 leading-relaxed">
+                                        Conducted comprehensive stakeholder interviews and user research within compliance frameworks to understand pharmaceutical industry needs and regulatory requirements.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Timeline Dot -->
+                            <div class="w-8 h-8 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full border-4 border-dark flex-shrink-0 z-10 hidden md:block"></div>
+                            
+                            <div class="md:w-1/2"></div>
+                        </div>
+
+                        <!-- Strategy & Planning -->
+                        <div class="flex flex-col md:flex-row items-center gap-12">
+                            <div class="md:w-1/2"></div>
+                            
+                            <!-- Timeline Dot -->
+                            <div class="w-8 h-8 bg-gradient-to-br from-indigo-400 to-indigo-500 rounded-full border-4 border-dark flex-shrink-0 z-10 hidden md:block"></div>
+                            
+                            <div class="md:w-1/2 md:pl-8">
+                                <div class="glass-card p-8 backdrop-blur-xl bg-gradient-to-bl from-indigo-500/10 to-transparent border border-indigo-400/30 rounded-3xl relative group hover:border-indigo-400/50 transition-all duration-500">
+                                    <div class="absolute top-6 left-6 w-12 h-12 bg-gradient-to-br from-indigo-400 to-indigo-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-chess text-white text-lg"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold mb-4 text-indigo-400">Strategy & Planning</h3>
+                                    <p class="text-white/80 leading-relaxed">
+                                        Developed strategic design frameworks and user journey maps that align with pharmaceutical compliance standards and enterprise security protocols.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Design & Implementation -->
+                        <div class="flex flex-col md:flex-row items-center gap-12">
+                            <div class="md:w-1/2 md:pr-8">
+                                <div class="glass-card p-8 backdrop-blur-xl bg-gradient-to-br from-purple-500/10 to-transparent border border-purple-400/30 rounded-3xl relative group hover:border-purple-400/50 transition-all duration-500">
+                                    <div class="absolute top-6 right-6 w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-palette text-white text-lg"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold mb-4 text-purple-400">Design & Implementation</h3>
+                                    <p class="text-white/80 leading-relaxed">
+                                        Created comprehensive design systems and interactive prototypes that meet accessibility standards while maintaining the sophisticated requirements of pharmaceutical workflows.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Timeline Dot -->
+                            <div class="w-8 h-8 bg-gradient-to-br from-purple-400 to-purple-500 rounded-full border-4 border-dark flex-shrink-0 z-10 hidden md:block"></div>
+                            
+                            <div class="md:w-1/2"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Responsibilities -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="400">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
+                    <span class="text-white">Key </span>
+                    <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Responsibilities</span>
+                </h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="group relative overflow-hidden bg-gradient-to-br from-blue-500/10 to-indigo-500/10 rounded-2xl p-6 border border-blue-500/20 hover:border-blue-400/40 transition-all duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-users text-blue-400 text-lg"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">User Research</h3>
+                            <p class="text-white/70 text-sm">Stakeholder interviews and compliance-focused user studies</p>
+                        </div>
+                    </div>
+                    
+                    <div class="group relative overflow-hidden bg-gradient-to-br from-indigo-500/10 to-purple-500/10 rounded-2xl p-6 border border-indigo-500/20 hover:border-indigo-400/40 transition-all duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-sitemap text-indigo-400 text-lg"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Information Architecture</h3>
+                            <p class="text-white/70 text-sm">Enterprise-level structure and navigation design</p>
+                        </div>
+                    </div>
+                    
+                    <div class="group relative overflow-hidden bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-2xl p-6 border border-purple-500/20 hover:border-purple-400/40 transition-all duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-mobile-alt text-purple-400 text-lg"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Prototyping</h3>
+                            <p class="text-white/70 text-sm">High-fidelity interactive prototypes and testing</p>
+                        </div>
+                    </div>
+                    
+                    <div class="group relative overflow-hidden bg-gradient-to-br from-pink-500/10 to-blue-500/10 rounded-2xl p-6 border border-pink-500/20 hover:border-pink-400/40 transition-all duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 bg-pink-500/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-shield-alt text-pink-400 text-lg"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Compliance Design</h3>
+                            <p class="text-white/70 text-sm">Regulatory standards and security protocol integration</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Professional Insights -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="500">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
+                    <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Professional </span>
+                    <span class="text-white">Insights</span>
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="glass-card p-8 backdrop-blur-xl bg-gradient-to-br from-blue-500/10 to-indigo-500/10 border border-blue-500/20 rounded-3xl">
+                            <div class="flex items-start gap-6">
+                                <div class="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-microscope text-blue-400 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold mb-4 text-blue-400">Industry Expertise</h3>
+                                    <p class="text-white/80 leading-relaxed">
+                                        Gained deep understanding of pharmaceutical industry workflows, regulatory compliance requirements, and the unique challenges of designing for healthcare professionals and enterprise users.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="glass-card p-8 backdrop-blur-xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-3xl">
+                            <div class="flex items-start gap-6">
+                                <div class="w-16 h-16 bg-purple-500/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-lock text-purple-400 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold mb-4 text-purple-400">Confidential Excellence</h3>
+                                    <p class="text-white/80 leading-relaxed">
+                                        Successfully delivered high-quality design solutions while maintaining strict confidentiality protocols, demonstrating professionalism and trustworthiness in sensitive corporate environments.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Navigation -->
+            <section class="text-center" data-aos="fade-up" data-aos-delay="600">
+                <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                    <h3 class="text-2xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                        Explore More Projects
+                    </h3>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="../projects.html" class="cta-btn group relative overflow-hidden bg-gradient-to-r from-blue-500 to-purple-500 p-[2px] rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25">
+                            <span class="block bg-dark rounded-full px-8 py-4 text-lg font-semibold group-hover:bg-transparent transition-colors duration-300">
+                                All Projects
+                            </span>
+                        </a>
+                        <a href="../contact.html" class="cta-btn-secondary group relative overflow-hidden border-2 border-white/20 rounded-full px-8 py-4 text-lg font-semibold backdrop-blur-sm bg-glass hover:bg-glass-hover hover:border-blue-500/50 transition-all duration-300 hover:scale-105">
+                            <span class="relative z-10">Get in Touch</span>
+                            <div class="absolute inset-0 bg-gradient-to-r from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/20 group-hover:to-purple-500/20 transition-all duration-300"></div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/10 backdrop-blur-sm bg-glass">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-white/60">
+                © 2025 Olaide Ilesanmi. Developed by <a class="text-yellow-200" href="https://websetly.com">Websetly</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../src/js/script.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out-cubic',
+            once: true,
+            offset: 100,
+            delay: 0,
+        });
+    </script>
+</body>
+</html>

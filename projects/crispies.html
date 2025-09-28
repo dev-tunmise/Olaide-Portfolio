@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crispies By Dal Case Study - Olaide Ilesanmi</title>
+    <meta name="description" content="Crispies By Dal - A finger food delivery app for Lagosians, created during Covid-19 to help restaurants deliver door to door.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark': '#0F172A',
+                        'neon-teal': '#14B8A6',
+                        'neon-purple': '#8B5CF6',
+                        'glass': 'rgba(255, 255, 255, 0.1)',
+                        'glass-hover': 'rgba(255, 255, 255, 0.2)',
+                    },
+                    fontFamily: {
+                        'futura': ['Futura', 'Arial', 'sans-serif'],
+                        'space': ['Space Grotesk', 'system-ui', 'sans-serif'],
+                    },
+                    backdropBlur: {
+                        'xs': '2px',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'tilt': 'tilt 10s linear infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../src/css/style.css">
+</head>
+<body class="bg-dark text-white font-space overflow-x-hidden">
+    
+    <!-- Background Elements -->
+    <div id="bg-canvas" class="fixed inset-0 -z-10"></div>
+    <div class="fixed inset-0 -z-10 bg-gradient-to-br from-neon-purple/20 via-dark to-neon-teal/20"></div>
+    
+    <!-- Floating Shapes -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div class="floating-shape absolute w-32 h-32 bg-gradient-to-r from-neon-teal/30 to-neon-purple/30 rounded-full blur-xl animate-float" style="top: 20%; left: 10%;"></div>
+        <div class="floating-shape absolute w-24 h-24 bg-gradient-to-r from-neon-purple/40 to-pink-500/40 rounded-full blur-lg animate-float" style="top: 60%; right: 15%; animation-delay: -2s;"></div>
+        <div class="floating-shape absolute w-40 h-40 bg-gradient-to-r from-blue-500/20 to-neon-teal/30 rounded-full blur-2xl animate-float" style="top: 80%; left: 70%; animation-delay: -4s;"></div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-glass border-b border-white/10" role="navigation">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold bg-gradient-to-r from-neon-teal to-neon-purple bg-clip-text text-transparent">
+                    <a href="../index.html">Olaide</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="../index.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Home">Home</a>
+                    <a href="../about.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="About">About</a>
+                    <a href="../skills.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Skills">Skills</a>
+                    <a href="../projects.html" class="nav-link text-neon-teal hover:text-neon-teal transition-colors duration-300" aria-label="Projects">Projects</a>
+                    <a href="../contact.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Contact">Contact</a>
+                </div>
+                <button class="md:hidden text-white hover:text-neon-teal transition-colors" id="mobile-menu-btn" aria-label="Toggle mobile menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-dark/95 backdrop-blur-lg hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-xl">
+            <a href="../index.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">Home</a>
+            <a href="../about.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">About</a>
+            <a href="../skills.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">Skills</a>
+            <a href="../projects.html" class="mobile-nav-link text-neon-teal hover:text-neon-teal transition-colors duration-300">Projects</a>
+            <a href="../contact.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">Contact</a>
+        </div>
+    </div>
+
+    <!-- Case Study Content -->
+    <main class="pt-32 pb-20">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <!-- Header Section -->
+            <div class="mb-20" data-aos="fade-up">
+                <div class="flex items-center gap-4 mb-8">
+                    <a href="../projects.html" class="flex items-center gap-2 text-white/70 hover:text-orange-400 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        Back to Projects
+                    </a>
+                </div>
+                
+                <!-- Hero Banner -->
+                <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-orange-500/30 via-red-500/20 to-pink-500/30 mb-12">
+                    <!-- Hero Image Background -->
+                    <div class="absolute inset-0">
+                        <img src="../src/images/Crispies/Crispies-main.jpg" alt="Crispies By Dal App Interface" class="w-full h-full object-cover opacity-20">
+                        <div class="absolute inset-0 bg-gradient-to-br from-orange-500/40 via-red-500/30 to-pink-500/40"></div>
+                    </div>
+                    
+                    <div class="relative z-10 p-8 md:p-12">
+                        <div class="flex flex-col md:flex-row items-start md:items-center gap-8">
+                            <div class="flex-1">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-20 h-20 bg-white/90 backdrop-blur-xl rounded-2xl flex items-center justify-center shadow-2xl border border-white/20">
+                                        <span class="text-3xl font-bold bg-gradient-to-br from-orange-500 to-red-600 bg-clip-text text-transparent">C</span>
+                                    </div>
+                                    <div>
+                                        <h1 class="text-6xl md:text-8xl font-bold text-white mb-2 drop-shadow-lg">Crispies</h1>
+                                        <p class="text-orange-200 text-lg font-medium">By Dal - Finger Food Delivery</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="text-xl text-white/95 leading-relaxed max-w-3xl mb-6 drop-shadow-sm">
+                                    A finger food delivery app for Lagosians, created during Covid-19 to help restaurants pivot to door-to-door delivery services during lockdown restrictions.
+                                </p>
+                                
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-full border border-white/30">Food Delivery</span>
+                                    <span class="px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-full border border-white/30">MVP Design</span>
+                                    <span class="px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-full border border-white/30">First Project</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Project Stats -->
+                            <div class="grid grid-cols-1 gap-4 min-w-[280px]">
+                                <div class="bg-white/15 backdrop-blur-xl rounded-2xl p-6 border border-white/30 shadow-lg">
+                                    <h3 class="text-lg font-bold text-orange-200 mb-2">Role</h3>
+                                    <p class="text-white">UX Designer</p>
+                                </div>
+                                <div class="bg-white/15 backdrop-blur-xl rounded-2xl p-6 border border-white/30 shadow-lg">
+                                    <h3 class="text-lg font-bold text-red-200 mb-2">Project Type</h3>
+                                    <p class="text-white">Confidential MVP</p>
+                                </div>
+                                <div class="bg-white/15 backdrop-blur-xl rounded-2xl p-6 border border-white/30 shadow-lg">
+                                    <h3 class="text-lg font-bold text-pink-200 mb-2">Platform</h3>
+                                    <p class="text-white">Mobile Application</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Enhanced Background decoration -->
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-white/15 to-transparent rounded-full blur-3xl"></div>
+                    <div class="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-orange-400/30 to-transparent rounded-full blur-2xl"></div>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-radial from-red-400/20 to-transparent rounded-full blur-3xl"></div>
+                </div>
+            </div>
+
+            <!-- Confidentiality Notice -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="100">
+                <div class="glass-card p-8 md:p-12 backdrop-blur-xl bg-gradient-to-br from-orange-500/10 to-red-500/10 border border-orange-500/30 rounded-3xl">
+                    <div class="flex items-start gap-6">
+                        <div class="w-16 h-16 bg-orange-500/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-8 h-8 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-9a2 2 0 00-2-2H6a2 2 0 00-2 2v9a2 2 0 002 2zm10-12V6a2 2 0 00-2-2H8a2 2 0 00-2 2v3h8z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Confidential Project</h2>
+                            <p class="text-xl text-white/80 leading-relaxed">
+                                As the nature of this project is confidential, I won't be able to show any visuals for the time being. However, I can provide details of the work I've done and the impact achieved during this challenging period.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Project Context -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="200">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
+                    <span class="text-white">Project </span>
+                    <span class="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">Context</span>
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-6 text-orange-400">The Challenge</h3>
+                        <p class="text-xl text-white/80 leading-relaxed mb-6">
+                            With Covid-19 forcing many restaurants to close their physical locations in Lagos, Nigeria, CrispiesbyDal saw an opportunity to act quickly and begin delivering finger foods door to door.
+                        </p>
+                        <p class="text-lg text-white/70 leading-relaxed">
+                            Despite this being my first real-life project, I was able to complete all deliverables with the invaluable guidance of a seasoned senior designer who served as my mentor throughout the project's execution.
+                        </p>
+                    </div>
+                    
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-red-400/20 to-pink-400/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                        <div class="relative overflow-hidden rounded-3xl border border-red-400/30 group-hover:border-red-400/50 transition-all duration-500">
+                            <img src="../src/images/Crispies/Crispies Frame.jpg" alt="Crispies Project Frame" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- My Role -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="300">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
+                    <span class="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">My </span>
+                    <span class="text-white">Role</span>
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-red-400/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                        <div class="relative overflow-hidden rounded-3xl border border-orange-400/30 group-hover:border-orange-400/50 transition-all duration-500">
+                            <img src="../src/images/Crispies/Crispies-my-role.JPG" alt="Crispies My Role Overview" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-3xl font-bold mb-6 text-orange-400">Key Responsibilities</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 bg-orange-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fas fa-brain text-orange-400 text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white mb-2">UX Strategy</h4>
+                                    <p class="text-white/70">Prioritized recognition over recall to create an intuitive user experience and familiar user flow</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 bg-red-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fas fa-chart-line text-red-400 text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white mb-2">Conversion Optimization</h4>
+                                    <p class="text-white/70">Achieved higher conversion rates through intuitive user flow design and familiar interaction patterns</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 bg-pink-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fas fa-palette text-pink-400 text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white mb-2">Design System</h4>
+                                    <p class="text-white/70">Documented UI elements, fonts, and design details for seamless handover to the technical team</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Design Process -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="400">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
+                    <span class="text-white">Design </span>
+                    <span class="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">Process</span>
+                </h2>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Process Step 1 -->
+                    <div class="group relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-red-400/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                        <div class="relative glass-card p-8 backdrop-blur-xl bg-gradient-to-br from-orange-500/10 to-transparent border border-orange-500/20 rounded-3xl hover:border-orange-400/40 transition-all duration-500">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-orange-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                    <span class="text-2xl font-bold text-orange-400">01</span>
+                                </div>
+                                <h3 class="text-xl font-bold mb-4 text-orange-400">MVP Strategy</h3>
+                                <p class="text-white/70 leading-relaxed">
+                                    Defined core features and user flows for the minimum viable product to ensure quick market entry during Covid-19
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Process Step 2 -->
+                    <div class="group relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-red-400/20 to-pink-400/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                        <div class="relative glass-card p-8 backdrop-blur-xl bg-gradient-to-br from-red-500/10 to-transparent border border-red-500/20 rounded-3xl hover:border-red-400/40 transition-all duration-500">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-red-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                    <span class="text-2xl font-bold text-red-400">02</span>
+                                </div>
+                                <h3 class="text-xl font-bold mb-4 text-red-400">Prototype Creation</h3>
+                                <p class="text-white/70 leading-relaxed">
+                                    Built interactive prototypes focusing on recognition over recall to create familiar user experiences
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Process Step 3 -->
+                    <div class="group relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-pink-400/20 to-orange-400/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                        <div class="relative glass-card p-8 backdrop-blur-xl bg-gradient-to-br from-pink-500/10 to-transparent border border-pink-500/20 rounded-3xl hover:border-pink-400/40 transition-all duration-500">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-pink-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                    <span class="text-2xl font-bold text-pink-400">03</span>
+                                </div>
+                                <h3 class="text-xl font-bold mb-4 text-pink-400">System Documentation</h3>
+                                <p class="text-white/70 leading-relaxed">
+                                    Created comprehensive design system documentation for smooth technical team handover
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Visual Representation -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="500">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
+                    <span class="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">Visual </span>
+                    <span class="text-white">Representation</span>
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                    <!-- Mock Design Preview -->
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-red-400/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                        <div class="relative overflow-hidden rounded-3xl border border-orange-400/30 group-hover:border-orange-400/50 transition-all duration-500">
+                            <img src="../src/images/Crispies/crispsies-mockup-samples.jpg" alt="Crispies Mockup Samples" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-3xl font-bold mb-6 text-orange-400">Mock Design Samples</h3>
+                        <p class="text-xl text-white/80 leading-relaxed mb-6">
+                            The creation of sample mock designs served as a valuable tool for presenting stakeholders with a tangible and visual representation of the brand's intended look and feel.
+                        </p>
+                        <p class="text-lg text-white/70 leading-relaxed">
+                            Through this process, the brand's identity and color scheme were effectively visualized, and stakeholders gained a better understanding of how the brand would appear across various mediums.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Takeaways -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="600">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
+                    <span class="text-white">Key </span>
+                    <span class="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">Takeaways</span>
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="glass-card p-8 backdrop-blur-xl bg-gradient-to-br from-orange-500/10 to-red-500/10 border border-orange-500/20 rounded-3xl">
+                            <div class="flex items-start gap-6">
+                                <div class="w-16 h-16 bg-orange-500/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-lightbulb text-orange-400 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold mb-4 text-orange-400">Learning Experience</h3>
+                                    <p class="text-white/80 leading-relaxed">
+                                        This being my first project taught me a lot about discovering user pain points. Getting real users' feedback on a product offers a fresh perspective that can be transformative to the success of your product or service.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="glass-card p-8 backdrop-blur-xl bg-gradient-to-br from-red-500/10 to-pink-500/10 border border-red-500/20 rounded-3xl">
+                            <div class="flex items-start gap-6">
+                                <div class="w-16 h-16 bg-red-500/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-palette text-red-400 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold mb-4 text-red-400">Skill Development</h3>
+                                    <p class="text-white/80 leading-relaxed">
+                                        This project helped me hone my visual design skills and understand the importance of mentorship in navigating complex real-world design challenges during unprecedented times.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Navigation -->
+            <section class="text-center" data-aos="fade-up" data-aos-delay="700">
+                <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                    <h3 class="text-2xl font-bold mb-6 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
+                        Explore More Projects
+                    </h3>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="../projects.html" class="cta-btn group relative overflow-hidden bg-gradient-to-r from-orange-500 to-red-500 p-[2px] rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/25">
+                            <span class="block bg-dark rounded-full px-8 py-4 text-lg font-semibold group-hover:bg-transparent transition-colors duration-300">
+                                All Projects
+                            </span>
+                        </a>
+                        <a href="../contact.html" class="cta-btn-secondary group relative overflow-hidden border-2 border-white/20 rounded-full px-8 py-4 text-lg font-semibold backdrop-blur-sm bg-glass hover:bg-glass-hover hover:border-orange-500/50 transition-all duration-300 hover:scale-105">
+                            <span class="relative z-10">Get in Touch</span>
+                            <div class="absolute inset-0 bg-gradient-to-r from-orange-500/0 to-red-500/0 group-hover:from-orange-500/20 group-hover:to-red-500/20 transition-all duration-300"></div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/10 backdrop-blur-sm bg-glass">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-white/60">
+                © 2025 Olaide Ilesanmi. Developed by <a class="text-yellow-200" href="https://websetly.com">Websetly</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../src/js/script.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out-cubic',
+            once: true,
+            offset: 100,
+            delay: 0,
+        });
+    </script>
+</body>
+</html>

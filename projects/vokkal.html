@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vokkal Case Study - Olaide Ilesanmi</title>
+    <meta name="description" content="Vokkal - An AI-powered language learning app where users can customize and personalize their words, have fun learning through games, and practice speaking with an AI bot.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark': '#0F172A',
+                        'neon-teal': '#14B8A6',
+                        'neon-purple': '#8B5CF6',
+                        'glass': 'rgba(255, 255, 255, 0.1)',
+                        'glass-hover': 'rgba(255, 255, 255, 0.2)',
+                    },
+                    fontFamily: {
+                        'futura': ['Futura', 'Arial', 'sans-serif'],
+                        'space': ['Space Grotesk', 'system-ui', 'sans-serif'],
+                    },
+                    backdropBlur: {
+                        'xs': '2px',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'tilt': 'tilt 10s linear infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../src/css/style.css">
+</head>
+<body class="bg-dark text-white font-space overflow-x-hidden">
+    
+    <!-- Background Elements -->
+    <div id="bg-canvas" class="fixed inset-0 -z-10"></div>
+    <div class="fixed inset-0 -z-10 bg-gradient-to-br from-sky-500/20 via-dark to-cyan-500/20"></div>
+    
+    <!-- Floating Shapes -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div class="floating-shape absolute w-32 h-32 bg-gradient-to-r from-sky-400/30 to-cyan-400/30 rounded-full blur-xl animate-float" style="top: 20%; left: 10%;"></div>
+        <div class="floating-shape absolute w-24 h-24 bg-gradient-to-r from-cyan-400/40 to-blue-500/40 rounded-full blur-lg animate-float" style="top: 60%; right: 15%; animation-delay: -2s;"></div>
+        <div class="floating-shape absolute w-40 h-40 bg-gradient-to-r from-blue-400/20 to-sky-400/30 rounded-full blur-2xl animate-float" style="top: 80%; left: 70%; animation-delay: -4s;"></div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-glass border-b border-white/10" role="navigation">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold bg-gradient-to-r from-neon-teal to-neon-purple bg-clip-text text-transparent">
+                    <a href="../index.html">Olaide</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="../index.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Home">Home</a>
+                    <a href="../about.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="About">About</a>
+                    <a href="../skills.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Skills">Skills</a>
+                    <a href="../projects.html" class="nav-link text-neon-teal hover:text-neon-teal transition-colors duration-300" aria-label="Projects">Projects</a>
+                    <a href="../contact.html" class="nav-link hover:text-neon-teal transition-colors duration-300" aria-label="Contact">Contact</a>
+                </div>
+                <button class="md:hidden text-white hover:text-neon-teal transition-colors" id="mobile-menu-btn" aria-label="Toggle mobile menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-dark/95 backdrop-blur-lg hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-xl">
+            <a href="../index.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">Home</a>
+            <a href="../about.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">About</a>
+            <a href="../skills.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">Skills</a>
+            <a href="../projects.html" class="mobile-nav-link text-neon-teal hover:text-neon-teal transition-colors duration-300">Projects</a>
+            <a href="../contact.html" class="mobile-nav-link hover:text-neon-teal transition-colors duration-300">Contact</a>
+        </div>
+    </div>
+
+    <!-- Case Study Content -->
+    <main class="pt-32 pb-20">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <!-- Header Section -->
+            <div class="mb-20" data-aos="fade-up">
+                <div class="flex items-center gap-4 mb-8">
+                    <a href="../projects.html" class="flex items-center gap-2 text-white/70 hover:text-sky-400 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        Back to Projects
+                    </a>
+                </div>
+                
+                <!-- Hero Banner -->
+                <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-sky-500/30 via-cyan-500/20 to-blue-500/30 mb-12">
+                    <!-- Hero Image Background -->
+                    <div class="absolute inset-0">
+                        <img src="../src/images/Vokkal/Vokkal.jpg" alt="Vokkal App Interface" class="w-full h-full object-cover opacity-20">
+                        <div class="absolute inset-0 bg-gradient-to-br from-sky-500/40 via-cyan-500/30 to-blue-500/40"></div>
+                    </div>
+                    
+                    <div class="relative z-10 p-8 md:p-12">
+                        <div class="flex flex-col md:flex-row items-start md:items-center gap-8">
+                            <div class="flex-1">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-20 h-20 bg-white/90 backdrop-blur-xl rounded-2xl flex items-center justify-center shadow-2xl border border-white/20">
+                                        <img src="../src/images/Vokkal/vokkal-logo.png" alt="Vokkal Logo" class="w-12 h-12 object-contain">
+                                    </div>
+                                    <div>
+                                        <h1 class="text-6xl md:text-8xl font-bold text-white mb-2 drop-shadow-lg">Vokkal</h1>
+                                        <p class="text-sky-200 text-lg font-medium">AI-Powered Language Learning</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="text-xl text-white/95 leading-relaxed max-w-3xl mb-6 drop-shadow-sm">
+                                    An innovative language learning app where users can customize and personalize their words, have fun learning through interactive games, and practice speaking with an intelligent AI bot.
+                                </p>
+                                
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-full border border-white/30">AI Learning</span>
+                                    <span class="px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-full border border-white/30">Voice Practice</span>
+                                    <span class="px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-full border border-white/30">Personalization</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Project Stats -->
+                            <div class="grid grid-cols-1 gap-4 min-w-[280px]">
+                                <div class="bg-white/15 backdrop-blur-xl rounded-2xl p-6 border border-white/30 shadow-lg">
+                                    <h3 class="text-lg font-bold text-sky-200 mb-2">Role</h3>
+                                    <p class="text-white">UX Designer</p>
+                                </div>
+                                <div class="bg-white/15 backdrop-blur-xl rounded-2xl p-6 border border-white/30 shadow-lg">
+                                    <h3 class="text-lg font-bold text-cyan-200 mb-2">Duration</h3>
+                                    <p class="text-white">October - December 2021</p>
+                                </div>
+                                <div class="bg-white/15 backdrop-blur-xl rounded-2xl p-6 border border-white/30 shadow-lg">
+                                    <h3 class="text-lg font-bold text-blue-200 mb-2">Platform</h3>
+                                    <p class="text-white">Mobile Application</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Enhanced Background decoration -->
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-white/15 to-transparent rounded-full blur-3xl"></div>
+                    <div class="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-sky-400/30 to-transparent rounded-full blur-2xl"></div>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-radial from-cyan-400/20 to-transparent rounded-full blur-3xl"></div>
+                </div>
+            </div>
+
+            <!-- Core Responsibilities -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="200">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">My <span class="text-sky-400">Responsibilities</span></h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-sky-400 to-cyan-500 mx-auto rounded-full"></div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="group relative overflow-hidden bg-gradient-to-br from-sky-500/10 to-cyan-500/10 rounded-2xl p-6 border border-sky-500/20 hover:border-sky-400/40 transition-all duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-br from-sky-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 bg-sky-500/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">User Research</h3>
+                            <p class="text-white/70 text-sm">Conducting interviews and understanding user needs</p>
+                        </div>
+                    </div>
+                    
+                    <div class="group relative overflow-hidden bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-2xl p-6 border border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 bg-cyan-500/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Wireframing</h3>
+                            <p class="text-white/70 text-sm">Paper and digital wireframing solutions</p>
+                        </div>
+                    </div>
+                    
+                    <div class="group relative overflow-hidden bg-gradient-to-br from-blue-500/10 to-indigo-500/10 rounded-2xl p-6 border border-blue-500/20 hover:border-blue-400/40 transition-all duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Prototyping</h3>
+                            <p class="text-white/70 text-sm">Low and high-fidelity prototyping</p>
+                        </div>
+                    </div>
+                    
+                    <div class="group relative overflow-hidden bg-gradient-to-br from-indigo-500/10 to-purple-500/10 rounded-2xl p-6 border border-indigo-500/20 hover:border-indigo-400/40 transition-all duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Testing</h3>
+                            <p class="text-white/70 text-sm">Usability studies and accessibility</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Problem & Goal -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="300">
+                <div class="relative">
+                    <!-- Problem Statement -->
+                    <div class="bg-gradient-to-r from-red-500/10 via-orange-500/10 to-yellow-500/10 rounded-3xl p-8 md:p-12 mb-8 border border-red-500/20">
+                        <div class="flex items-start gap-6">
+                            <div class="w-16 h-16 bg-red-500/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">The Problem</h2>
+                                <p class="text-xl text-white/80 leading-relaxed">
+                                    More often language learners have issues with <span class="text-red-300 font-semibold">speaking and memorizing new words</span>. This makes it difficult to socialize and interact in real-world situations, limiting their confidence and fluency development.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Goal Statement -->
+                    <div class="bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-sky-500/10 rounded-3xl p-8 md:p-12 border border-emerald-500/20">
+                        <div class="flex items-start gap-6">
+                            <div class="w-16 h-16 bg-emerald-500/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Our Goal</h2>
+                                <p class="text-xl text-white/80 leading-relaxed">
+                                    Create a <span class="text-emerald-300 font-semibold">comprehensive language learning app</span> that adapts to all forms of learning styles, making language acquisition accessible, engaging, and effective for every user.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Understanding the User -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="400">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
+                    <span class="bg-gradient-to-r from-sky-400 to-cyan-500 bg-clip-text text-transparent">Understanding </span>
+                    <span class="text-white">the User</span>
+                </h2>
+                
+                <!-- Interviews Section -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-sky-400/20 to-cyan-400/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                        <div class="relative overflow-hidden rounded-3xl border border-sky-400/30 group-hover:border-sky-400/50 transition-all duration-500">
+                            <img src="../src/images/Vokkal/Vokkal-interview-questions.png" alt="Vokkal Interview Questions" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-3xl font-bold mb-6 text-sky-400">Interviews</h3>
+                        <p class="text-xl text-white/80 mb-8 leading-relaxed">
+                            In the ideation phase of the project, I engaged in user interviews aimed at crafting new personas and gathering insights to inform the design process. To achieve this, I developed an interview script comprising 12 open-ended questions that delved into the values, motivations and daily routines of our target audience.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 gap-6">
+                            <div class="glass-card p-6 backdrop-blur-xl bg-glass border border-cyan-500/20 rounded-2xl">
+                                <h4 class="text-lg font-semibold mb-4 text-cyan-400">Customer Intro Questions</h4>
+                                <ul class="space-y-2 text-white/70">
+                                    <li>• Are you a student, an employee, or both?</li>
+                                    <li>• When do you normally first use the Internet?</li>
+                                </ul>
+                            </div>
+                            <div class="glass-card p-6 backdrop-blur-xl bg-glass border border-blue-500/20 rounded-2xl">
+                                <h4 class="text-lg font-semibold mb-4 text-blue-400">Topic-related Questions</h4>
+                                <ul class="space-y-2 text-white/70">
+                                    <li>• Tell me about the last time you had to learn new words</li>
+                                    <li>• What is your preferred method of learning?</li>
+                                    <li>• What was the most difficult aspect of learning?</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personas & Problem Statement -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-6 text-sky-400">Personas</h3>
+                        <p class="text-xl text-white/80 mb-8 leading-relaxed">
+                            I conducted user interviews, which I then turned into empathy maps to better understand the target user and their needs. I discovered that many target users often struggle to remember new words they've learnt or how to apply them in real world scenarios.
+                        </p>
+                        <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-cyan-500/20 rounded-3xl">
+                            <h4 class="text-xl font-bold mb-4 text-cyan-400">Problem Statement</h4>
+                            <p class="text-white/80 leading-relaxed">
+                                Borges is an international student in Germany, who needs a tool that will allow him practice speaking German more fluently in various scenarios, particularly during networking events, because he wants to learn faster and integrate more easily.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-gradient-to-bl from-cyan-400/20 to-blue-400/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                        <div class="relative overflow-hidden rounded-3xl border border-cyan-400/30 group-hover:border-cyan-400/50 transition-all duration-500">
+                            <img src="../src/images/Vokkal/Vokkal-personasproblem-statement.png" alt="Vokkal Personas and Problem Statement" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pain Points -->
+                <div class="relative">
+                    <h3 class="text-3xl font-bold mb-8 text-center text-white">User Pain Points</h3>
+                    
+                    <div class="space-y-6">
+                        <!-- Pain Point 1 -->
+                        <div class="flex items-start gap-6 p-6 rounded-2xl bg-gradient-to-r from-red-500/5 to-transparent border-l-4 border-red-400">
+                            <div class="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-red-400 font-bold text-lg">1</span>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-red-400 mb-2">Lack of Word Explanations</h4>
+                                <p class="text-white/80 leading-relaxed">
+                                    Language apps don't offer comprehensive explanations for given words, leaving users confused about context and usage.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Pain Point 2 -->
+                        <div class="flex items-start gap-6 p-6 rounded-2xl bg-gradient-to-r from-orange-500/5 to-transparent border-l-4 border-orange-400">
+                            <div class="w-12 h-12 bg-orange-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-orange-400 font-bold text-lg">2</span>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-orange-400 mb-2">Limited Learning Methods</h4>
+                                <p class="text-white/80 leading-relaxed">
+                                    The majority of apps do not offer a variety of learning methods, and most rely solely on gamification for learning engagement.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Pain Point 3 -->
+                        <div class="flex items-start gap-6 p-6 rounded-2xl bg-gradient-to-r from-yellow-500/5 to-transparent border-l-4 border-yellow-400">
+                            <div class="w-12 h-12 bg-yellow-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-yellow-400 font-bold text-lg">3</span>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-yellow-400 mb-2">Lack of Practice Opportunities</h4>
+                                <p class="text-white/80 leading-relaxed">
+                                    There is a significant lack of opportunities to practice what you are learning in real-world scenarios when learning a new language.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Starting the Design -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="600">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
+                    <span class="text-white">Starting the </span>
+                    <span class="bg-gradient-to-r from-sky-400 to-cyan-500 bg-clip-text text-transparent">Design</span>
+                </h2>
+
+                <!-- Task Flow Analysis -->
+                <div class="mb-16">
+                    <h3 class="text-3xl font-bold mb-6 text-center text-sky-400">Task Flow and Analysis</h3>
+                    <p class="text-xl text-white/80 mb-12 leading-relaxed text-center max-w-4xl mx-auto">
+                        I created 2 major task flows to streamline the user journey and eliminate unnecessary steps, reducing user frustration and increasing task completion rates.
+                    </p>
+                    
+                    <!-- Task Flow 1 -->
+                    <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                        <div class="relative group">
+                            <div class="absolute inset-0 bg-gradient-to-br from-sky-400/20 to-cyan-400/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                            <div class="relative overflow-hidden rounded-3xl border border-sky-400/30 group-hover:border-sky-400/50 transition-all duration-500">
+                                <img src="../src/images/Vokkal/Vokkal-taskflow1.jpg" alt="Vokkal Task Flow 1 - Create Study Pack" class="w-full h-auto object-cover">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-2xl font-bold mb-4 text-sky-400">Task Flow 1: Create Study Pack</h4>
+                            <p class="text-white/80 mb-6 leading-relaxed">A method for adding new vocabulary words and definitions that allows users to add their own definitions and create personalized learning materials.</p>
+                            <div class="glass-card p-6 backdrop-blur-xl bg-glass border border-sky-500/20 rounded-2xl">
+                                <div class="space-y-3 text-white/70">
+                                    <div class="flex items-start gap-3">
+                                        <span class="text-sky-400 font-semibold">Entry Point:</span>
+                                        <span>Open the App</span>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <span class="text-sky-400 font-semibold">Success Criteria:</span>
+                                        <span>A new vocabulary word is created and saved with user's definitions.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Task Flow 2 -->
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="order-2 md:order-1">
+                            <h4 class="text-2xl font-bold mb-4 text-cyan-400">Task Flow 2: Voice Play</h4>
+                            <p class="text-white/80 mb-6 leading-relaxed">A fun interactive method of conversing with inbuilt AI based on the user's chosen topic, enabling real-world practice scenarios.</p>
+                            <div class="glass-card p-6 backdrop-blur-xl bg-glass border border-cyan-500/20 rounded-2xl">
+                                <div class="space-y-3 text-white/70">
+                                    <div class="flex items-start gap-3">
+                                        <span class="text-cyan-400 font-semibold">Entry Point:</span>
+                                        <span>Open the App</span>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <span class="text-cyan-400 font-semibold">Success Criteria:</span>
+                                        <span>User practices speaking and pronunciation based on real-life scenarios.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="order-1 md:order-2 relative group">
+                            <div class="absolute inset-0 bg-gradient-to-bl from-cyan-400/20 to-blue-400/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                            <div class="relative overflow-hidden rounded-3xl border border-cyan-400/30 group-hover:border-cyan-400/50 transition-all duration-500">
+                                <img src="../src/images/Vokkal/vokkal-taskflow2.jpg" alt="Vokkal Task Flow 2 - Voice Play" class="w-full h-auto object-cover">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paper Wireframes -->
+                <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-sky-500/5 via-cyan-500/5 to-blue-500/5 p-8 border border-sky-400/20">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-sky-400/10 to-transparent rounded-full -translate-y-32 translate-x-32"></div>
+                    <div class="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-cyan-400/10 to-transparent rounded-full translate-y-24 -translate-x-24"></div>
+                    
+                    <div class="relative grid md:grid-cols-2 gap-12 items-center">
+                        <div class="order-2 md:order-1">
+                            <div class="relative group">
+                                <div class="absolute inset-0 bg-gradient-to-br from-sky-400/20 to-cyan-400/20 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500"></div>
+                                <div cass="relative overflow-hidden rounded-2xl border border-sky-400/30 hover:border-sky-400/50 transition-all duration-500 max-w-md mx-auto">
+                                    <img src="../src/images/Vokkal/paper-wireframes.png" alt="Vokkal Paper Wireframes" class="w-full h-auto object-contain max-h-96">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="order-1 md:order-2">
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 bg-gradient-to-br from-sky-400 to-cyan-400 rounded-2xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-drafting-compass text-white text-lg"></i>
+                                </div>
+                                <h3 class="text-3xl font-bold text-sky-400">Paper Wireframes</h3>
+                            </div>
+                            
+                            <p class="text-xl text-white/80 leading-relaxed mb-6">
+                                In order to address the user pain point, I designed the wireframe so that it could be adapted for different types of users and their preferred learning style.
+                            </p>
+                            
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="p-4 rounded-xl bg-gradient-to-br from-sky-500/10 to-transparent border border-sky-400/20">
+                                    <h4 class="font-semibold text-sky-400 mb-2">Speaking</h4>
+                                    <p class="text-white/60 text-sm">Voice-based interactions</p>
+                                </div>
+                                <div class="p-4 rounded-xl bg-gradient-to-br from-cyan-500/10 to-transparent border border-cyan-400/20">
+                                    <h4 class="font-semibold text-cyan-400 mb-2">Reading</h4>
+                                    <p class="text-white/60 text-sm">Text comprehension</p>
+                                </div>
+                                <div class="p-4 rounded-xl bg-gradient-to-br from-blue-500/10 to-transparent border border-blue-400/20">
+                                    <h4 class="font-semibold text-blue-400 mb-2">Writing</h4>
+                                    <p class="text-white/60 text-sm">Language composition</p>
+                                </div>
+                                <div class="p-4 rounded-xl bg-gradient-to-br from-indigo-500/10 to-transparent border border-indigo-400/20">
+                                    <h4 class="font-semibold text-indigo-400 mb-2">Games</h4>
+                                    <p class="text-white/60 text-sm">Interactive learning</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Usability Testing -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="700">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
+                    <span class="bg-gradient-to-r from-sky-400 to-cyan-500 bg-clip-text text-transparent">Usability </span>
+                    <span class="text-white">Testing</span>
+                </h2>
+                
+                <div class="glass-card p-8 md:p-12 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl mb-16">
+                    <div class="text-center mb-8">
+                        <h3 class="text-3xl font-bold mb-4 text-sky-400">Nielsen Norman Severity Rating Scale</h3>
+                        <p class="text-lg text-white/80 max-w-2xl mx-auto">The following 0 to 4 rating scale was used to rate the severity of usability problems:</p>
+                    </div>
+
+                    <!-- Severity Scale Visual -->
+                    <div class="relative">
+                        <!-- Background Gradient Line -->
+                        <div class="absolute top-1/2 left-8 right-8 h-2 bg-gradient-to-r from-green-400 via-yellow-400 via-orange-400 to-red-400 rounded-full transform -translate-y-1/2"></div>
+                        
+                        <!-- Scale Points -->
+                        <div class="flex justify-between items-center relative z-10 px-8">
+                            <!-- Scale 0 -->
+                            <div class="flex flex-col items-center group">
+                                <div class="w-16 h-16 bg-green-500/20 backdrop-blur-xl border-4 border-green-400 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300">
+                                    <span class="text-green-400 font-bold text-xl">0</span>
+                                </div>
+                                <div class="text-center max-w-32">
+                                    <p class="text-green-400 font-semibold text-sm mb-1">No Problem</p>
+                                    <p class="text-white/60 text-xs leading-tight">Not a usability issue</p>
+                                </div>
+                            </div>
+
+                            <!-- Scale 1 -->
+                            <div class="flex flex-col items-center group">
+                                <div class="w-16 h-16 bg-blue-500/20 backdrop-blur-xl border-4 border-blue-400 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300">
+                                    <span class="text-blue-400 font-bold text-xl">1</span>
+                                </div>
+                                <div class="text-center max-w-32">
+                                    <p class="text-blue-400 font-semibold text-sm mb-1">Cosmetic</p>
+                                    <p class="text-white/60 text-xs leading-tight">Fix if time permits</p>
+                                </div>
+                            </div>
+
+                            <!-- Scale 2 -->
+                            <div class="flex flex-col items-center group">
+                                <div class="w-16 h-16 bg-yellow-500/20 backdrop-blur-xl border-4 border-yellow-400 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300">
+                                    <span class="text-yellow-400 font-bold text-xl">2</span>
+                                </div>
+                                <div class="text-center max-w-32">
+                                    <p class="text-yellow-400 font-semibold text-sm mb-1">Minor</p>
+                                    <p class="text-white/60 text-xs leading-tight">Low priority fix</p>
+                                </div>
+                            </div>
+
+                            <!-- Scale 3 -->
+                            <div class="flex flex-col items-center group">
+                                <div class="w-16 h-16 bg-orange-500/20 backdrop-blur-xl border-4 border-orange-400 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300">
+                                    <span class="text-orange-400 font-bold text-xl">3</span>
+                                </div>
+                                <div class="text-center max-w-32">
+                                    <p class="text-orange-400 font-semibold text-sm mb-1">Major</p>
+                                    <p class="text-white/60 text-xs leading-tight">High priority fix</p>
+                                </div>
+                            </div>
+
+                            <!-- Scale 4 -->
+                            <div class="flex flex-col items-center group">
+                                <div class="w-16 h-16 bg-red-500/20 backdrop-blur-xl border-4 border-red-400 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300">
+                                    <span class="text-red-400 font-bold text-xl">4</span>
+                                </div>
+                                <div class="text-center max-w-32">
+                                    <p class="text-red-400 font-semibold text-sm mb-1">Catastrophe</p>
+                                    <p class="text-white/60 text-xs leading-tight">Must fix immediately</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Refining Mockup -->
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-6 text-cyan-400">Refining the Mock-up</h3>
+                        <p class="text-xl text-white/80 leading-relaxed">
+                            The hi-fi prototype followed the same user flow as the lo-fi prototype, and included the design changes made after the usability study, as well as several changes suggested by the users.
+                        </p>
+                    </div>
+                    
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-blue-400/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                        <div class="relative overflow-hidden rounded-3xl border border-cyan-400/30 group-hover:border-cyan-400/50 transition-all duration-500">
+                            <img src="../src/images/Vokkal/usaibility-testing.png" alt="Vokkal Usability Testing Results" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Takeaways -->
+            <section class="mb-20" data-aos="fade-up" data-aos-delay="800">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
+                    <span class="text-white">Key </span>
+                    <span class="bg-gradient-to-r from-sky-400 to-cyan-500 bg-clip-text text-transparent">Takeaways</span>
+                </h2>
+                
+                <!-- Key Takeaways Timeline -->
+                <div class="relative">
+                    <!-- Central Timeline Line -->
+                    <div class="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-sky-400 via-cyan-400 to-blue-400 rounded-full transform -translate-x-1/2 hidden md:block"></div>
+                    
+                    <div class="space-y-16">
+                        <!-- Impact Takeaway -->
+                        <div class="flex flex-col md:flex-row items-center gap-12">
+                            <div class="md:w-1/2 md:pr-8">
+                                <div class="glass-card p-8 backdrop-blur-xl bg-gradient-to-br from-sky-500/10 to-transparent border border-sky-400/30 rounded-3xl relative group hover:border-sky-400/50 transition-all duration-500">
+                                    <div class="absolute top-6 right-6 w-12 h-12 bg-gradient-to-br from-sky-400 to-sky-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-rocket text-white text-lg"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold mb-4 text-sky-400">Impact</h3>
+                                    <p class="text-white/80 leading-relaxed">
+                                        Our target users shared that the design was intuitive to navigate through, more engaging with the images, and demonstrated a clear visual hierarchy.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Timeline Dot -->
+                            <div class="w-8 h-8 bg-gradient-to-br from-sky-400 to-sky-500 rounded-full border-4 border-dark flex-shrink-0 z-10 hidden md:block"></div>
+                            
+                            <div class="md:w-1/2"></div>
+                        </div>
+
+                        <!-- Learning Takeaway -->
+                        <div class="flex flex-col md:flex-row items-center gap-16">
+                            <div class="md:w-1/2"></div>
+                            
+                            <!-- Timeline Dot -->
+                            <div class="w-8 h-8 bg-gradient-to-br from-cyan-400 to-cyan-500 rounded-full border-4 border-dark flex-shrink-0 z-10 hidden md:block"></div>
+                            
+                            <div class="md:w-1/2 md:pl-12">
+                                <div class="glass-card p-8 backdrop-blur-xl bg-gradient-to-bl from-cyan-500/10 to-transparent border border-cyan-400/30 rounded-3xl relative group hover:border-cyan-400/50 transition-all duration-500 ml-4">
+                                    <div class="absolute top-6 left-6 w-12 h-12 bg-gradient-to-br from-cyan-400 to-cyan-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-lightbulb text-white text-lg"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold mb-4 text-cyan-400">What I Learnt</h3>
+                                    <p class="text-white/80 leading-relaxed">
+                                        I learned that even a small design change can have a huge impact on the user experience. The most important takeaway is to always focus on the real needs of the user.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Next Steps Takeaway -->
+                        <div class="flex flex-col md:flex-row items-center gap-12">
+                            <div class="md:w-1/2 md:pr-8">
+                                <div class="glass-card p-8 backdrop-blur-xl bg-gradient-to-br from-blue-500/10 to-transparent border border-blue-400/30 rounded-3xl relative group hover:border-blue-400/50 transition-all duration-500">
+                                    <div class="absolute top-6 right-6 w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-arrow-right text-white text-lg"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold mb-4 text-blue-400">Next Steps</h3>
+                                    <p class="text-white/80 leading-relaxed">
+                                        Conduct another round of usability studies to validate whether the pain points users experienced have been effectively addressed.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Timeline Dot -->
+                            <div class="w-8 h-8 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full border-4 border-dark flex-shrink-0 z-10 hidden md:block"></div>
+                            
+                            <div class="md:w-1/2"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Navigation -->
+            <section class="text-center" data-aos="fade-up" data-aos-delay="900">
+                <div class="glass-card p-8 backdrop-blur-xl bg-glass border border-white/10 rounded-3xl">
+                    <h3 class="text-2xl font-bold mb-6 bg-gradient-to-r from-sky-400 to-cyan-500 bg-clip-text text-transparent">
+                        Explore More Projects
+                    </h3>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="../projects.html" class="cta-btn group relative overflow-hidden bg-gradient-to-r from-sky-500 to-cyan-500 p-[2px] rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-sky-500/25">
+                            <span class="block bg-dark rounded-full px-8 py-4 text-lg font-semibold group-hover:bg-transparent transition-colors duration-300">
+                                All Projects
+                            </span>
+                        </a>
+                        <a href="../contact.html" class="cta-btn-secondary group relative overflow-hidden border-2 border-white/20 rounded-full px-8 py-4 text-lg font-semibold backdrop-blur-sm bg-glass hover:bg-glass-hover hover:border-sky-500/50 transition-all duration-300 hover:scale-105">
+                            <span class="relative z-10">Get in Touch</span>
+                            <div class="absolute inset-0 bg-gradient-to-r from-sky-500/0 to-cyan-500/0 group-hover:from-sky-500/20 group-hover:to-cyan-500/20 transition-all duration-300"></div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/10 backdrop-blur-sm bg-glass">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-white/60">
+                © 2025 Olaide Ilesanmi. Developed by <a class="text-yellow-200" href="https://websetly.com">Websetly</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../src/js/script.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out-cubic',
+            once: true,
+            offset: 100,
+            delay: 0,
+        });
+    </script>
+</body>
+</html>
